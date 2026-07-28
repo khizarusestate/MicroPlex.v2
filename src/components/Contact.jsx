@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Mail, Phone, MapPin, ArrowUpRight, Send } from "lucide-react";
+import { Mail, Phone, MapPin, Send } from "lucide-react";
 import Particles from "./Particles";
+import Reveal from "./Reveal";
 
 const info = [
   { icon: Mail, label: "Email", value: "hello@yourcompany.com" },
@@ -22,27 +23,33 @@ export default function Contact() {
   };
 
   return (
-    <main className="w-screen bg-black relative overflow-hidden">
+    <main id="contact" className="w-full bg-black relative overflow-hidden">
       <Particles />
 
       {/* ---------- HERO ---------- */}
       <section className="relative z-10 flex flex-col justify-center items-center gap-6 px-6 text-center pt-28 pb-16">
-        <span className="orbitron text-[11px] md:text-xs tracking-[0.35em] uppercase text-[#5A8EF6]">
-          Get In Touch
-        </span>
-        <h1 className="w-[90%] md:w-[60%] text-[26px] md:text-[48px] font-[inter] font-bold leading-tight bg-gradient-to-r from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent">
-          Let's Build Something Worth Shipping.
-        </h1>
-        <p className="w-[90%] md:w-[45%] text-gray-400 text-sm md:text-base leading-relaxed">
-          Tell us what you're working on — we typically reply within one
-          business day.
-        </p>
+        <Reveal>
+          <span className="orbitron text-[11px] md:text-xs tracking-[0.35em] uppercase text-[#5A8EF6]">
+            Get In Touch
+          </span>
+        </Reveal>
+        <Reveal delay={0.1}>
+          <h1 className="w-[90%] md:w-[60%] mx-auto text-[26px] md:text-[48px] font-[inter] font-bold leading-tight bg-gradient-to-r from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent">
+            Let's Build Something Worth Shipping.
+          </h1>
+        </Reveal>
+        <Reveal delay={0.2}>
+          <p className="w-[90%] md:w-[45%] mx-auto text-gray-400 text-sm md:text-base leading-relaxed">
+            Tell us what you're working on — we typically reply within one
+            business day.
+          </p>
+        </Reveal>
       </section>
 
       {/* ---------- CONTENT ---------- */}
       <section className="relative z-10 max-w-5xl mx-auto px-6 pb-24 grid md:grid-cols-2 gap-14 items-start">
         {/* left — info as divided rows, not boxed */}
-        <div className="flex flex-col gap-8">
+        <Reveal className="flex flex-col gap-8">
           <div className="flex flex-col divide-y divide-white/10 border-y border-white/10">
             {info.map((item) => {
               const Icon = item.icon;
@@ -65,12 +72,16 @@ export default function Contact() {
             Prefer async? Email works just as well — we read every message
             ourselves, no support ticket queue in between.
           </p>
-        </div>
+        </Reveal>
 
         {/* right — the form is the one place a contained panel earns its keep */}
+        <Reveal
+          delay={0.15}
+          className="rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 shadow-[0_0_40px_rgba(90,142,246,0.12)]"
+        >
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col gap-5 p-8 rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 shadow-[0_0_40px_rgba(90,142,246,0.12)]"
+          className="flex flex-col gap-5 p-8"
         >
           <div className="flex flex-col gap-2">
             <label className="text-gray-400 text-xs orbitron tracking-wide">
@@ -126,6 +137,7 @@ export default function Contact() {
             </p>
           )}
         </form>
+        </Reveal>
       </section>
     </main>
   );

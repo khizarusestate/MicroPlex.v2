@@ -11,6 +11,7 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 import Particles from "./Particles";
+import Reveal from "./Reveal";
 
 /* Animated count-up for the stats row — triggers once the section enters view */
 function Counter({ to, suffix = "", duration = 1400 }) {
@@ -81,26 +82,32 @@ const process = [
 
 export default function About() {
   return (
-    <main className="w-screen bg-black relative overflow-hidden">
+    <main id="about" className="w-full bg-black relative overflow-hidden">
       <Particles />
 
       {/* ---------- HERO ---------- */}
       <section className="relative z-10 min-h-[70vh] flex flex-col justify-center items-center gap-6 px-6 text-center pt-28 pb-16">
-        <span className="orbitron text-[11px] md:text-xs tracking-[0.35em] uppercase text-[#5A8EF6]">
-          About Us
-        </span>
-        <h1 className="w-[90%] md:w-[65%] text-[26px] md:text-[48px] font-[inter] font-bold leading-tight bg-gradient-to-r from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent">
-          We Build the Systems Behind Tomorrow's Businesses.
-        </h1>
-        <p className="w-[90%] md:w-[50%] text-gray-400 text-sm md:text-base leading-relaxed">
-          A small, deliberately-sized team of engineers who'd rather ship one
-          thing well than five things half-finished.
-        </p>
+        <Reveal>
+          <span className="orbitron text-[11px] md:text-xs tracking-[0.35em] uppercase text-[#5A8EF6]">
+            About Us
+          </span>
+        </Reveal>
+        <Reveal delay={0.1}>
+          <h1 className="w-[90%] md:w-[65%] mx-auto text-[26px] md:text-[48px] font-[inter] font-bold leading-tight bg-gradient-to-r from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent">
+            We Build the Systems Behind Tomorrow's Businesses.
+          </h1>
+        </Reveal>
+        <Reveal delay={0.2}>
+          <p className="w-[90%] md:w-[50%] mx-auto text-gray-400 text-sm md:text-base leading-relaxed">
+            A small, deliberately-sized team of engineers who'd rather ship one
+            thing well than five things half-finished.
+          </p>
+        </Reveal>
       </section>
 
       {/* ---------- STORY ---------- */}
       <section className="relative z-10 max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-14 items-center">
-        <div className="flex flex-col gap-5">
+        <Reveal className="flex flex-col gap-5">
           <h2 className="orbitron text-xl md:text-3xl font-bold text-gray-100">
             Started small.{" "}
             <span className="bg-gradient-to-r from-[#49D9E8] to-[#5A8EF6] bg-clip-text text-transparent">
@@ -122,10 +129,10 @@ export default function About() {
           <button className="w-fit orbitron mt-2 flex items-center gap-2 px-6 py-3 rounded-full font-bold text-sm text-gray-900 bg-gradient-to-r from-[#49D9E8] via-[#5A8EF6] to-[#5A8EF6] shadow-[0_0_35px_rgba(90,142,246,0.5)] hover:shadow-[0_0_60px_rgba(90,142,246,0.8)] hover:scale-105 transition-all duration-300 border border-white/20">
             Work With Us <ArrowUpRight className="h-4 w-4" />
           </button>
-        </div>
+        </Reveal>
 
         {/* right column — inline stats, no boxes, just rules */}
-        <div className="flex flex-col divide-y divide-white/10 border-y border-white/10">
+        <Reveal delay={0.15} className="flex flex-col divide-y divide-white/10 border-y border-white/10">
           {[
             { n: 6, suffix: "+", label: "Years building production software" },
             { n: 120, suffix: "+", label: "Projects shipped and still running" },
@@ -139,7 +146,7 @@ export default function About() {
               </p>
             </div>
           ))}
-        </div>
+        </Reveal>
       </section>
 
       {/* ---------- VALUES — alternating rows, not cards ---------- */}
@@ -152,8 +159,9 @@ export default function About() {
             const Icon = v.icon;
             const reversed = i % 2 === 1;
             return (
-              <div
+              <Reveal
                 key={v.title}
+                delay={i * 0.1}
                 className={`flex flex-col md:flex-row ${
                   reversed ? "md:flex-row-reverse" : ""
                 } items-center gap-6 md:gap-10`}
@@ -175,7 +183,7 @@ export default function About() {
                     {v.desc}
                   </p>
                 </div>
-              </div>
+              </Reveal>
             );
           })}
         </div>
@@ -191,7 +199,11 @@ export default function About() {
           {process.map((p, i) => {
             const Icon = p.icon;
             return (
-              <div key={p.label} className="relative flex md:flex-col items-center gap-4 md:gap-3 md:text-center md:w-[18%]">
+              <Reveal
+                key={p.label}
+                delay={i * 0.1}
+                className="relative flex md:flex-col items-center gap-4 md:gap-3 md:text-center md:w-[18%]"
+              >
                 <div className="relative shrink-0 h-12 w-12 rounded-full flex items-center justify-center bg-black border border-white/15 z-10">
                   <Icon className="h-5 w-5 text-[#5A8EF6]" />
                 </div>
@@ -206,7 +218,7 @@ export default function About() {
                     {p.desc}
                   </p>
                 </div>
-              </div>
+              </Reveal>
             );
           })}
         </div>
@@ -214,17 +226,19 @@ export default function About() {
 
       {/* ---------- CTA ---------- */}
       <section className="relative z-10 flex flex-col items-center gap-6 px-6 py-24 text-center">
-        <h2 className="w-[90%] md:w-[55%] text-[22px] md:text-[34px] font-[inter] font-bold leading-tight bg-gradient-to-r from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent">
-          Have Something Worth Building?
-        </h2>
-        <div className="flex flex-wrap justify-center gap-6 orbitron">
-          <button className="px-8 py-3 rounded-full font-bold text-gray-900 bg-gradient-to-r from-[#49D9E8] via-[#5A8EF6] to-[#5A8EF6] shadow-[0_0_35px_rgba(90,142,246,0.5)] hover:shadow-[0_0_60px_rgba(90,142,246,0.8)] hover:scale-105 transition-all duration-300 border border-white/20">
-            START A PROJECT
-          </button>
-          <button className="px-8 py-3 rounded-full font-bold text-white bg-white/5 backdrop-blur-xl border border-[#D06AE8]/50 shadow-[0_0_30px_rgba(208,106,232,0.4)] hover:bg-[#D06AE8]/20 hover:shadow-[0_0_60px_rgba(208,106,232,0.8)] hover:scale-105 transition-all duration-300">
-            MEET THE TEAM
-          </button>
-        </div>
+        <Reveal className="flex flex-col items-center gap-6">
+          <h2 className="w-[90%] md:w-[55%] mx-auto text-[22px] md:text-[34px] font-[inter] font-bold leading-tight bg-gradient-to-r from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent">
+            Have Something Worth Building?
+          </h2>
+          <div className="flex flex-wrap justify-center gap-6 orbitron">
+            <button className="px-8 py-3 rounded-full font-bold text-gray-900 bg-gradient-to-r from-[#49D9E8] via-[#5A8EF6] to-[#5A8EF6] shadow-[0_0_35px_rgba(90,142,246,0.5)] hover:shadow-[0_0_60px_rgba(90,142,246,0.8)] hover:scale-105 transition-all duration-300 border border-white/20">
+              START A PROJECT
+            </button>
+            <button className="px-8 py-3 rounded-full font-bold text-white bg-white/5 backdrop-blur-xl border border-[#D06AE8]/50 shadow-[0_0_30px_rgba(208,106,232,0.4)] hover:bg-[#D06AE8]/20 hover:shadow-[0_0_60px_rgba(208,106,232,0.8)] hover:scale-105 transition-all duration-300">
+              MEET THE TEAM
+            </button>
+          </div>
+        </Reveal>
       </section>
     </main>
   );

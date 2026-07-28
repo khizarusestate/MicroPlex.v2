@@ -4,11 +4,11 @@ import {
   Cloud,
   Palette,
   Database,
-  LifeBuoy,
   Check,
   ArrowUpRight,
 } from "lucide-react";
 import Particles from "./Particles";
+import Reveal from "./Reveal";
 
 const services = [
   {
@@ -52,21 +52,27 @@ const included = [
 
 export default function Services() {
   return (
-    <main className="w-screen bg-black relative overflow-hidden">
+    <main id="services" className="w-full bg-black relative overflow-hidden">
       <Particles />
 
       {/* ---------- HERO ---------- */}
       <section className="relative z-10 min-h-[65vh] flex flex-col justify-center items-center gap-6 px-6 text-center pt-28 pb-16">
-        <span className="orbitron text-[11px] md:text-xs tracking-[0.35em] uppercase text-[#5A8EF6]">
-          Our Services
-        </span>
-        <h1 className="w-[90%] md:w-[65%] text-[26px] md:text-[48px] font-[inter] font-bold leading-tight bg-gradient-to-r from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent">
-          Everything You Need to Ship Software That Lasts.
-        </h1>
-        <p className="w-[90%] md:w-[50%] text-gray-400 text-sm md:text-base leading-relaxed">
-          From first line of code to the team that keeps it running — one
-          group, no handoffs between agencies.
-        </p>
+        <Reveal>
+          <span className="orbitron text-[11px] md:text-xs tracking-[0.35em] uppercase text-[#5A8EF6]">
+            Our Services
+          </span>
+        </Reveal>
+        <Reveal delay={0.1}>
+          <h1 className="w-[90%] md:w-[65%] mx-auto text-[26px] md:text-[48px] font-[inter] font-bold leading-tight bg-gradient-to-r from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent">
+            Everything You Need to Ship Software That Lasts.
+          </h1>
+        </Reveal>
+        <Reveal delay={0.2}>
+          <p className="w-[90%] md:w-[50%] mx-auto text-gray-400 text-sm md:text-base leading-relaxed">
+            From first line of code to the team that keeps it running — one
+            group, no handoffs between agencies.
+          </p>
+        </Reveal>
       </section>
 
       {/* ---------- SERVICES — alternating rows, not a card grid ---------- */}
@@ -76,8 +82,9 @@ export default function Services() {
             const Icon = s.icon;
             const reversed = i % 2 === 1;
             return (
-              <div
+              <Reveal
                 key={s.title}
+                delay={i * 0.08}
                 className={`flex flex-col md:flex-row ${
                   reversed ? "md:flex-row-reverse" : ""
                 } items-center gap-6 md:gap-10 pb-14 border-b border-white/10 last:border-none`}
@@ -102,7 +109,7 @@ export default function Services() {
                     {s.desc}
                   </p>
                 </div>
-              </div>
+              </Reveal>
             );
           })}
         </div>
@@ -110,10 +117,12 @@ export default function Services() {
 
       {/* ---------- INCLUDED — flowing checklist, not boxed ---------- */}
       <section className="relative z-10 max-w-4xl mx-auto px-6 py-16 text-center">
-        <h2 className="orbitron text-xl md:text-3xl font-bold text-gray-100 mb-10">
-          Comes Standard, Not Sold Separately
-        </h2>
-        <div className="grid sm:grid-cols-2 gap-x-10 gap-y-6 text-left">
+        <Reveal>
+          <h2 className="orbitron text-xl md:text-3xl font-bold text-gray-100 mb-10">
+            Comes Standard, Not Sold Separately
+          </h2>
+        </Reveal>
+        <Reveal delay={0.1} className="grid sm:grid-cols-2 gap-x-10 gap-y-6 text-left">
           {included.map((item) => (
             <div key={item} className="flex items-start gap-3">
               <div className="mt-1 shrink-0 h-5 w-5 rounded-full flex items-center justify-center bg-white/5 border border-[#49D9E8]/40">
@@ -124,22 +133,24 @@ export default function Services() {
               </p>
             </div>
           ))}
-        </div>
+        </Reveal>
       </section>
 
       {/* ---------- CTA ---------- */}
       <section className="relative z-10 flex flex-col items-center gap-6 px-6 py-24 text-center">
-        <h2 className="w-[90%] md:w-[55%] text-[22px] md:text-[34px] font-[inter] font-bold leading-tight bg-gradient-to-r from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent">
-          Not Sure Which Service Fits?
-        </h2>
-        <div className="flex flex-wrap justify-center gap-6 orbitron">
-          <button className="px-8 py-3 rounded-full font-bold text-gray-900 bg-gradient-to-r from-[#49D9E8] via-[#5A8EF6] to-[#5A8EF6] shadow-[0_0_35px_rgba(90,142,246,0.5)] hover:shadow-[0_0_60px_rgba(90,142,246,0.8)] hover:scale-105 transition-all duration-300 border border-white/20">
-            BOOK A CALL
-          </button>
-          <button className="px-8 py-3 rounded-full font-bold text-white bg-white/5 backdrop-blur-xl border border-[#D06AE8]/50 shadow-[0_0_30px_rgba(208,106,232,0.4)] hover:bg-[#D06AE8]/20 hover:shadow-[0_0_60px_rgba(208,106,232,0.8)] hover:scale-105 transition-all duration-300 flex items-center gap-2">
-            SEE OUR PRODUCTS <ArrowUpRight className="h-4 w-4" />
-          </button>
-        </div>
+        <Reveal className="flex flex-col items-center gap-6">
+          <h2 className="w-[90%] md:w-[55%] mx-auto text-[22px] md:text-[34px] font-[inter] font-bold leading-tight bg-gradient-to-r from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent">
+            Not Sure Which Service Fits?
+          </h2>
+          <div className="flex flex-wrap justify-center gap-6 orbitron">
+            <button className="px-8 py-3 rounded-full font-bold text-gray-900 bg-gradient-to-r from-[#49D9E8] via-[#5A8EF6] to-[#5A8EF6] shadow-[0_0_35px_rgba(90,142,246,0.5)] hover:shadow-[0_0_60px_rgba(90,142,246,0.8)] hover:scale-105 transition-all duration-300 border border-white/20">
+              BOOK A CALL
+            </button>
+            <button className="px-8 py-3 rounded-full font-bold text-white bg-white/5 backdrop-blur-xl border border-[#D06AE8]/50 shadow-[0_0_30px_rgba(208,106,232,0.4)] hover:bg-[#D06AE8]/20 hover:shadow-[0_0_60px_rgba(208,106,232,0.8)] hover:scale-105 transition-all duration-300 flex items-center gap-2">
+              SEE OUR PRODUCTS <ArrowUpRight className="h-4 w-4" />
+            </button>
+          </div>
+        </Reveal>
       </section>
     </main>
   );

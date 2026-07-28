@@ -35,7 +35,7 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer className="relative w-screen bg-black overflow-hidden">
+    <footer className="relative w-full bg-black overflow-hidden">
       {/* thin gradient line instead of a hard border */}
       <div className="h-px w-full bg-gradient-to-r from-transparent via-[#5A8EF6]/50 to-transparent" />
 
