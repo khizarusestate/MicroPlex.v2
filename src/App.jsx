@@ -10,7 +10,7 @@ import Footer from "./components/Footer"
 import ScrollProgress from "./components/ScrollProgress"
 
 // Scrolls to a hash target on route change, otherwise resets to top —
-// keeps in-page anchors (Services/Contact) working across route navigations.
+// keeps in-page anchors (like #home) working across route navigations.
 function ScrollManager() {
   const location = useLocation()
 
@@ -18,7 +18,6 @@ function ScrollManager() {
     if (location.hash) {
       const el = document.querySelector(location.hash)
       if (el) {
-        // wait a tick for the route's content to mount
         requestAnimationFrame(() => el.scrollIntoView({ behavior: "smooth" }))
         return
       }
@@ -34,8 +33,6 @@ function HomePage() {
     <>
       <Home />
       <About />
-      <Services />
-      <Contact />
     </>
   )
 }
@@ -49,6 +46,8 @@ export default function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutDetailed />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />
     </>

@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { label: "Home", to: "/#home" },
+  { label: "Home", to: "/" },
   { label: "About", to: "/about" },
-  { label: "Services", to: "/#services" },
-  { label: "Products", to: "/#services" },
+  { label: "Services", to: "/services" },
+  { label: "Products", to: "/services" },
 ];
 
 export default function Header() {
@@ -48,7 +48,7 @@ export default function Header() {
         </nav>
 
         <Link
-          to="/#contact"
+          to="/contact"
           className="hidden md:inline-block px-7 py-2.5 rounded-full font-bold text-gray-900 bg-gradient-to-r from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] shadow-[0_0_25px_rgba(90,142,246,0.5)] hover:scale-105 hover:shadow-[0_0_45px_rgba(90,142,246,0.8)] transition-all duration-300"
         >
           CONTACT US
@@ -88,7 +88,7 @@ export default function Header() {
             ))}
           </ul>
           <Link
-            to="/#contact"
+            to="/contact"
             onClick={() => setOpen(false)}
             className="text-center px-7 py-2.5 rounded-full font-bold text-gray-900 bg-gradient-to-r from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] shadow-[0_0_25px_rgba(90,142,246,0.5)] transition-all duration-300"
           >

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Mail } from "lucide-react";
 
 /* lucide-react has deprecated/removed brand logos (Github, Linkedin, Twitter/X),
@@ -22,8 +23,18 @@ const XIcon = (props) => (
 );
 
 const links = {
-  Company: ["About", "Services", "Products", "Contact"],
-  Explore: ["Home", "Coming Soon", "Careers", "Blog"],
+  Company: [
+    { label: "About", to: "/about" },
+    { label: "Services", to: "/services" },
+    { label: "Products", to: "/services" },
+    { label: "Contact", to: "/contact" },
+  ],
+  Explore: [
+    { label: "Home", to: "/" },
+    { label: "Coming Soon", to: null },
+    { label: "Careers", to: null },
+    { label: "Blog", to: null },
+  ],
 };
 
 const socials = [
@@ -69,13 +80,19 @@ export default function Footer() {
             </p>
             <ul className="flex flex-col gap-3">
               {items.map((item) => (
-                <li key={item}>
-                  <a
-                    href="#"
-                    className="text-gray-400 text-sm hover:text-[#49D9E8] transition-colors duration-300"
-                  >
-                    {item}
-                  </a>
+                <li key={item.label}>
+                  {item.to ? (
+                    <Link
+                      to={item.to}
+                      className="text-gray-400 text-sm hover:text-[#49D9E8] transition-colors duration-300"
+                    >
+                      {item.label}
+                    </Link>
+                  ) : (
+                    <span className="text-gray-600 text-sm cursor-default">
+                      {item.label}
+                    </span>
+                  )}
                 </li>
               ))}
             </ul>

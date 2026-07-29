@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Mail, Phone, MapPin, Send, ArrowLeft } from "lucide-react";
 import Particles from "./Particles";
 import Reveal from "./Reveal";
 
@@ -27,7 +28,15 @@ export default function Contact() {
       <Particles />
 
       {/* ---------- HERO ---------- */}
-      <section className="relative z-10 flex flex-col justify-center items-center gap-6 px-6 text-center pt-28 pb-16">
+      <section className="relative z-10 flex flex-col justify-center items-center gap-6 px-6 text-center pt-32 pb-16">
+        <Reveal>
+          <Link
+            to="/"
+            className="inline-flex items-center gap-2 text-gray-500 text-xs orbitron tracking-wide hover:text-[#49D9E8] transition-colors duration-300 mb-2"
+          >
+            <ArrowLeft className="h-3.5 w-3.5" /> Home / Contact
+          </Link>
+        </Reveal>
         <Reveal>
           <span className="orbitron text-[11px] md:text-xs tracking-[0.35em] uppercase text-[#5A8EF6]">
             Get In Touch

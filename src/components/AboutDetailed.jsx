@@ -142,8 +142,6 @@ export default function AboutDetailed() {
       {/* ================= HERO — grid + mesh glow, distinct from the particle field ================= */}
       <section className="relative z-10 min-h-screen flex flex-col justify-center items-center gap-6 px-6 text-center pt-32 pb-20 overflow-hidden">
         <div className="absolute inset-0 bg-grid" />
-        <div className="absolute top-[10%] left-[15%] h-[320px] w-[320px] rounded-full bg-[#5A8EF6]/20 blur-[100px] animate-drift" />
-        <div className="absolute bottom-[5%] right-[10%] h-[280px] w-[280px] rounded-full bg-[#D06AE8]/20 blur-[100px] animate-drift-slow" />
 
         <Reveal>
           <Link
@@ -385,22 +383,19 @@ export default function AboutDetailed() {
 
       {/* ================= CTA — a few orbs, back to the familiar brand language ================= */}
       <section className="relative z-10 flex flex-col items-center gap-6 px-6 py-28 text-center overflow-hidden">
-        <div className="absolute top-[10%] left-[5%] h-[220px] w-[220px] rounded-full bg-[rgba(90,142,246,0.18)] shadow-[0_0_700px_rgb(90,142,246)]" />
-        <div className="absolute bottom-[10%] right-[5%] h-[220px] w-[220px] rounded-full bg-[rgba(217,94,234,0.5)] shadow-[0_0_700px_rgb(217,94,234)]" />
-
         <Reveal className="relative z-10 flex flex-col items-center gap-6">
           <h2 className="w-[90%] md:w-[55%] mx-auto text-[22px] md:text-[36px] font-[inter] font-bold leading-tight bg-gradient-to-r from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent">
             Think We'd Be a Good Fit?
           </h2>
           <div className="flex flex-wrap justify-center gap-6 orbitron">
             <Link
-              to="/#contact"
+              to="/contact"
               className="px-8 py-3 rounded-full font-bold text-gray-900 bg-gradient-to-r from-[#49D9E8] via-[#5A8EF6] to-[#5A8EF6] shadow-[0_0_35px_rgba(90,142,246,0.5)] hover:shadow-[0_0_60px_rgba(90,142,246,0.8)] hover:scale-105 transition-all duration-300 border border-white/20"
             >
               START A PROJECT
             </Link>
             <Link
-              to="/#services"
+              to="/services"
               className="px-8 py-3 rounded-full font-bold text-white bg-white/5 backdrop-blur-xl border border-[#D06AE8]/50 shadow-[0_0_30px_rgba(208,106,232,0.4)] hover:bg-[#D06AE8]/20 hover:shadow-[0_0_60px_rgba(208,106,232,0.8)] hover:scale-105 transition-all duration-300 flex items-center gap-2"
             >
               SEE OUR SERVICES <ArrowUpRight className="h-4 w-4" />

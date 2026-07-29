@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import {
   Code2,
   Smartphone,
@@ -6,6 +7,7 @@ import {
   Database,
   Check,
   ArrowUpRight,
+  ArrowLeft,
 } from "lucide-react";
 import Particles from "./Particles";
 import Reveal from "./Reveal";
@@ -57,6 +59,14 @@ export default function Services() {
 
       {/* ---------- HERO ---------- */}
       <section className="relative z-10 min-h-[65vh] flex flex-col justify-center items-center gap-6 px-6 text-center pt-28 pb-16">
+        <Reveal>
+          <Link
+            to="/"
+            className="inline-flex items-center gap-2 text-gray-500 text-xs orbitron tracking-wide hover:text-[#49D9E8] transition-colors duration-300 mb-2"
+          >
+            <ArrowLeft className="h-3.5 w-3.5" /> Home / Services
+          </Link>
+        </Reveal>
         <Reveal>
           <span className="orbitron text-[11px] md:text-xs tracking-[0.35em] uppercase text-[#5A8EF6]">
             Our Services
@@ -143,12 +153,18 @@ export default function Services() {
             Not Sure Which Service Fits?
           </h2>
           <div className="flex flex-wrap justify-center gap-6 orbitron">
-            <button className="px-8 py-3 rounded-full font-bold text-gray-900 bg-gradient-to-r from-[#49D9E8] via-[#5A8EF6] to-[#5A8EF6] shadow-[0_0_35px_rgba(90,142,246,0.5)] hover:shadow-[0_0_60px_rgba(90,142,246,0.8)] hover:scale-105 transition-all duration-300 border border-white/20">
+            <Link
+              to="/contact"
+              className="px-8 py-3 rounded-full font-bold text-gray-900 bg-gradient-to-r from-[#49D9E8] via-[#5A8EF6] to-[#5A8EF6] shadow-[0_0_35px_rgba(90,142,246,0.5)] hover:shadow-[0_0_60px_rgba(90,142,246,0.8)] hover:scale-105 transition-all duration-300 border border-white/20"
+            >
               BOOK A CALL
-            </button>
-            <button className="px-8 py-3 rounded-full font-bold text-white bg-white/5 backdrop-blur-xl border border-[#D06AE8]/50 shadow-[0_0_30px_rgba(208,106,232,0.4)] hover:bg-[#D06AE8]/20 hover:shadow-[0_0_60px_rgba(208,106,232,0.8)] hover:scale-105 transition-all duration-300 flex items-center gap-2">
+            </Link>
+            <Link
+              to="/"
+              className="px-8 py-3 rounded-full font-bold text-white bg-white/5 backdrop-blur-xl border border-[#D06AE8]/50 shadow-[0_0_30px_rgba(208,106,232,0.4)] hover:bg-[#D06AE8]/20 hover:shadow-[0_0_60px_rgba(208,106,232,0.8)] hover:scale-105 transition-all duration-300 flex items-center gap-2"
+            >
               SEE OUR PRODUCTS <ArrowUpRight className="h-4 w-4" />
-            </button>
+            </Link>
           </div>
         </Reveal>
       </section>
