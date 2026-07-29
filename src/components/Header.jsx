@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Products", href: "#services" },
+  { label: "Home", to: "/#home" },
+  { label: "About", to: "/about" },
+  { label: "Services", to: "/#services" },
+  { label: "Products", to: "/#services" },
 ];
 
 export default function Header() {
@@ -23,33 +24,35 @@ export default function Header() {
     <header className="w-full h-[76px] flex justify-center items-center fixed top-0 z-50 orbitron">
       <div className="w-[92%] sm:w-[90%] max-w-[1400px] flex justify-between items-center px-5 sm:px-8 py-3 rounded-full bg-white/5 backdrop-blur-xl border border-white/10 shadow-[0_0_30px_rgba(90,142,246,0.15)]">
 
-        <img
-          src="/Images/Logo.png"
-          className="h-[42px] sm:h-[55px] hover:scale-105 transition-all duration-300"
-          alt="MicroPlex logo"
-        />
+        <Link to="/">
+          <img
+            src="/Images/Logo.png"
+            className="h-[42px] sm:h-[55px] hover:scale-105 transition-all duration-300"
+            alt="MicroPlex logo"
+          />
+        </Link>
 
         <nav className="hidden md:block text-gray-200">
           <ul className="flex items-center gap-[45px]">
             {navLinks.map((item) => (
               <li key={item.label}>
-                <a
-                  href={item.href}
+                <Link
+                  to={item.to}
                   className="cursor-pointer hover:text-[#49D9E8] transition-all duration-300"
                 >
                   {item.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
         </nav>
 
-        <a
-          href="#contact"
+        <Link
+          to="/#contact"
           className="hidden md:inline-block px-7 py-2.5 rounded-full font-bold text-gray-900 bg-gradient-to-r from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] shadow-[0_0_25px_rgba(90,142,246,0.5)] hover:scale-105 hover:shadow-[0_0_45px_rgba(90,142,246,0.8)] transition-all duration-300"
         >
           CONTACT US
-        </a>
+        </Link>
 
         {/* mobile hamburger */}
         <button
@@ -74,23 +77,23 @@ export default function Header() {
           <ul className="flex flex-col gap-5 text-gray-200 text-center">
             {navLinks.map((item) => (
               <li key={item.label}>
-                <a
-                  href={item.href}
+                <Link
+                  to={item.to}
                   onClick={() => setOpen(false)}
                   className="cursor-pointer hover:text-[#49D9E8] transition-all duration-300"
                 >
                   {item.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
-          <a
-            href="#contact"
+          <Link
+            to="/#contact"
             onClick={() => setOpen(false)}
             className="text-center px-7 py-2.5 rounded-full font-bold text-gray-900 bg-gradient-to-r from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] shadow-[0_0_25px_rgba(90,142,246,0.5)] transition-all duration-300"
           >
             CONTACT US
-          </a>
+          </Link>
         </div>
       </div>
     </header>
