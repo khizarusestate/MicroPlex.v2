@@ -7,6 +7,7 @@ import About from "./components/About"
 import Testimonials from "./components/Testimonials"
 import Footer from "./components/Footer"
 import ScrollProgress from "./components/ScrollProgress"
+import CustomCursor from "./components/CustomCursor"
 import PageTransition from "./components/PageTransition"
 import PageLoader from "./components/PageLoader"
 
@@ -50,6 +51,7 @@ export default function App() {
 
   return (
     <>
+      <CustomCursor />
       <ScrollProgress />
       <ScrollManager />
       <Header />

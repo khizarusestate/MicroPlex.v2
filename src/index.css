@@ -56,6 +56,18 @@ body,
   }
 }
 
+/* Custom cursor — hide the system cursor everywhere except text fields,
+   where people still expect the normal I-beam. */
+.custom-cursor-active,
+.custom-cursor-active * {
+  cursor: none !important;
+}
+
+.custom-cursor-active input,
+.custom-cursor-active textarea {
+  cursor: text !important;
+}
+
 /* Alternate background textures for the detailed About page —
    kept distinct from the particle field used on Home/Services/Contact. */
 .bg-grid {
