@@ -18,15 +18,35 @@ const quickLinks = [
 
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState("idle"); // idle | sending | sent | error
+  const [errorMsg, setErrorMsg] = useState("");
 
   const handleChange = (e) =>
     setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // wire this up to your backend / email service
-    setSent(true);
+    setStatus("sending");
+    setErrorMsg("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || "Something went wrong.");
+      }
+
+      setStatus("sent");
+      setForm({ name: "", email: "", message: "" });
+    } catch (err) {
+      setStatus("error");
+      setErrorMsg(err.message || "Something went wrong. Please try again.");
+    }
   };
 
   return (
@@ -163,15 +183,25 @@ export default function Contact() {
           </div>
           <button
             type="submit"
-            className="orbitron mt-2 flex items-center justify-center gap-2 px-8 py-3 rounded-full font-bold text-sm text-gray-900 bg-gradient-to-r from-[#49D9E8] via-[#5A8EF6] to-[#5A8EF6] shadow-[0_0_35px_rgba(90,142,246,0.5)] hover:shadow-[0_0_60px_rgba(90,142,246,0.8)] hover:scale-105 transition-all duration-300 border border-white/20"
+            disabled={status === "sending"}
+            className="orbitron mt-2 flex items-center justify-center gap-2 px-8 py-3 rounded-full font-bold text-sm text-gray-900 bg-gradient-to-r from-[#49D9E8] via-[#5A8EF6] to-[#5A8EF6] shadow-[0_0_35px_rgba(90,142,246,0.5)] hover:shadow-[0_0_60px_rgba(90,142,246,0.8)] hover:scale-105 transition-all duration-300 border border-white/20 disabled:opacity-60 disabled:hover:scale-100 disabled:cursor-not-allowed"
           >
-            {sent ? "Message Sent" : "Send Message"}
-            {!sent && <Send className="h-4 w-4" />}
+            {status === "sending"
+              ? "Sending..."
+              : status === "sent"
+              ? "Message Sent"
+              : "Send Message"}
+            {status !== "sending" && status !== "sent" && (
+              <Send className="h-4 w-4" />
+            )}
           </button>
-          {sent && (
+          {status === "sent" && (
             <p className="text-[#49D9E8] text-xs text-center">
               Thanks — we'll get back to you shortly.
             </p>
+          )}
+          {status === "error" && (
+            <p className="text-[#D06AE8] text-xs text-center">{errorMsg}</p>
           )}
         </form>
         </Reveal>
