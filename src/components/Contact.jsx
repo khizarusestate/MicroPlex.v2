@@ -3,11 +3,16 @@ import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, Send, ArrowLeft } from "lucide-react";
 import Particles from "./Particles";
 import Reveal from "./Reveal";
+import Orb from "./Orb";
+import { GithubIcon } from "./BrandIcons";
 
-const info = [
-  { icon: Mail, label: "Email", value: "hello@yourcompany.com" },
-  { icon: Phone, label: "Phone", value: "+92 300 0000000" },
-  { icon: MapPin, label: "Based in", value: "Karachi, Pakistan" },
+const info = [{ icon: MapPin, label: "Based in", value: "Karachi, Pakistan" }];
+
+// Icon-only — no link text/URLs rendered on the page, just the href in code.
+const quickLinks = [
+  { icon: Phone, href: "tel:+92301220345", label: "Call us" },
+  { icon: Mail, href: "mailto:abdulhadi6252671@gmail.com", label: "Email us" },
+  { icon: GithubIcon, href: "https://github.com/khizarusestate", label: "GitHub" },
 ];
 
 export default function Contact() {
@@ -25,6 +30,8 @@ export default function Contact() {
 
   return (
     <main id="contact" className="w-full bg-black relative overflow-hidden">
+      <Orb side="left" top="15%" offset={210} fill="rgba(90,142,246,0.2)" glow="rgb(90,142,246)" />
+      <Orb side="right" top="70%" offset={210} fill="rgba(73,217,232,0.2)" glow="rgb(73,217,232)" />
       <Particles />
 
       {/* ---------- HERO ---------- */}
@@ -81,6 +88,22 @@ export default function Contact() {
             Prefer async? Email works just as well — we read every message
             ourselves, no support ticket queue in between.
           </p>
+
+          {/* icon-only — hrefs carry the real phone/email/github data, no link text shown */}
+          <div className="flex items-center gap-4">
+            {quickLinks.map(({ icon: Icon, href, label }) => (
+              <a
+                key={label}
+                href={href}
+                target={href.startsWith("http") ? "_blank" : undefined}
+                rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+                aria-label={label}
+                className="h-11 w-11 rounded-full flex items-center justify-center border border-white/10 text-gray-400 hover:text-[#49D9E8] hover:border-[#49D9E8]/50 hover:shadow-[0_0_20px_rgba(90,142,246,0.3)] transition-all duration-300"
+              >
+                <Icon className="h-4 w-4" />
+              </a>
+            ))}
+          </div>
         </Reveal>
 
         {/* right — the form is the one place a contained panel earns its keep */}

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Clock, Headphones, Code2 } from "lucide-react";
 import Particles from "./Particles";
 import Reveal from "./Reveal";
+import Orb from "./Orb";
 
 const features = [
   { icon: Clock, color: "#49D9E8", label: "24 / 7 Availability" },
@@ -30,7 +31,7 @@ export default function Home() {
             EXPLORE OUR SERVICES
           </Link>
           <Link
-            to="/services"
+            to="/products"
             className="w-full sm:w-auto text-center px-8 py-3 rounded-full font-bold text-white bg-white/5 backdrop-blur-xl border border-[#D06AE8]/50 shadow-[0_0_30px_rgba(208,106,232,0.4)] hover:bg-[#D06AE8]/20 hover:shadow-[0_0_60px_rgba(208,106,232,0.8)] hover:scale-105 transition-all duration-300"
           >
             SEE OUR PRODUCTS
@@ -52,9 +53,9 @@ export default function Home() {
         </article>
       </Reveal>
 
-      {/* orbs: the balls themselves sit fully off-canvas — only their glow bleeds in */}
-      <div className="absolute top-[20%] left-[-260px] h-[200px] w-[200px] rounded-full bg-[rgba(90,142,246,0.2)] shadow-[0_0_900px_rgb(90,142,246)]" />
-      <div className="absolute top-[40%] right-[-260px] h-[200px] w-[200px] rounded-full bg-[rgb(217,94,234)] shadow-[0_0_900px_rgb(217,94,234)]" />
+      {/* orbs: the balls themselves sit off-canvas — only their glow bleeds in */}
+      <Orb side="left" top="20%" offset={210} fill="rgba(90,142,246,0.2)" glow="rgb(90,142,246)" />
+      <Orb side="right" top="40%" offset={210} fill="rgb(217,94,234)" glow="rgb(217,94,234)" />
       <Particles />
     </main>
   );

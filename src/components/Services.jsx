@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import Particles from "./Particles";
 import Reveal from "./Reveal";
+import Orb from "./Orb";
 
 const services = [
   {
@@ -55,6 +56,8 @@ const included = [
 export default function Services() {
   return (
     <main id="services" className="w-full bg-black relative overflow-hidden">
+      <Orb side="right" top="10%" offset={210} fill="rgba(90,142,246,0.2)" glow="rgb(90,142,246)" />
+      <Orb side="left" top="80%" offset={210} fill="rgba(208,106,232,0.2)" glow="rgb(208,106,232)" />
       <Particles />
 
       {/* ---------- HERO ---------- */}
@@ -160,7 +163,7 @@ export default function Services() {
               BOOK A CALL
             </Link>
             <Link
-              to="/"
+              to="/products"
               className="px-8 py-3 rounded-full font-bold text-white bg-white/5 backdrop-blur-xl border border-[#D06AE8]/50 shadow-[0_0_30px_rgba(208,106,232,0.4)] hover:bg-[#D06AE8]/20 hover:shadow-[0_0_60px_rgba(208,106,232,0.8)] hover:scale-105 transition-all duration-300 flex items-center gap-2"
             >
               SEE OUR PRODUCTS <ArrowUpRight className="h-4 w-4" />

@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import Particles from "./Particles";
 import Reveal from "./Reveal";
+import Orb from "./Orb";
 import TiltCard from "./TiltCard";
 
 /* ---------- shared count-up (mirrors the one on the short About section) ---------- */
@@ -142,6 +143,8 @@ export default function AboutDetailed() {
       {/* ================= HERO — grid + mesh glow, distinct from the particle field ================= */}
       <section className="relative z-10 min-h-screen flex flex-col justify-center items-center gap-6 px-6 text-center pt-32 pb-20 overflow-hidden">
         <div className="absolute inset-0 bg-grid" />
+        <Orb side="left" top="18%" offset={210} fill="rgba(90,142,246,0.2)" glow="rgb(90,142,246)" />
+        <Orb side="right" top="55%" offset={210} fill="rgba(208,106,232,0.2)" glow="rgb(208,106,232)" />
 
         <Reveal>
           <Link
@@ -383,6 +386,7 @@ export default function AboutDetailed() {
 
       {/* ================= CTA — a few orbs, back to the familiar brand language ================= */}
       <section className="relative z-10 flex flex-col items-center gap-6 px-6 py-28 text-center overflow-hidden">
+        <Orb side="left" top="30%" offset={210} fill="rgba(73,217,232,0.2)" glow="rgb(73,217,232)" />
         <Reveal className="relative z-10 flex flex-col items-center gap-6">
           <h2 className="w-[90%] md:w-[55%] mx-auto text-[22px] md:text-[36px] font-[inter] font-bold leading-tight bg-gradient-to-r from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent">
             Think We'd Be a Good Fit?

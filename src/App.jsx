@@ -4,6 +4,7 @@ import Header from "./components/Header"
 import Home from "./components/Home"
 import About from "./components/About"
 import AboutDetailed from "./components/AboutDetailed"
+import Products from "./components/Products"
 import Services from "./components/Services"
 import Contact from './components/Contact'
 import Footer from "./components/Footer"
@@ -46,6 +47,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutDetailed />} />
+        <Route path="/products" element={<Products />} />
         <Route path="/services" element={<Services />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>

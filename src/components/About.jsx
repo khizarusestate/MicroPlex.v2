@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import Particles from "./Particles";
 import Reveal from "./Reveal";
+import Orb from "./Orb";
 
 /* Animated count-up for the stats row — triggers once the section enters view */
 function Counter({ to, suffix = "", duration = 1400 }) {
@@ -83,6 +84,7 @@ const process = [
 export default function About() {
   return (
     <main id="about" className="w-full bg-black relative overflow-hidden">
+      <Orb side="right" top="8%" offset={210} fill="rgba(208,106,232,0.2)" glow="rgb(208,106,232)" />
       <Particles />
 
       {/* ---------- HERO ---------- */}
