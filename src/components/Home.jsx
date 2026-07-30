@@ -1,14 +1,9 @@
-import { lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 import { Clock, Headphones, Code2 } from "lucide-react";
 import Particles from "./Particles";
 import Reveal from "./Reveal";
 import Orb from "./Orb";
 import Seo from "./Seo";
-
-// Code-split — three.js is heavy, so it loads in the background after the
-// rest of the hero (text, buttons) is already visible and interactive.
-const Hero3D = lazy(() => import("./Hero3D"));
 
 const features = [
   { icon: Clock, color: "#49D9E8", label: "24 / 7 Availability" },
@@ -66,9 +61,6 @@ export default function Home() {
       {/* orbs: the balls themselves sit off-canvas — only their glow bleeds in */}
       <Orb side="left" top="20%" offset={210} fill="rgba(90,142,246,0.2)" glow="rgb(90,142,246)" />
       <Orb side="right" top="40%" offset={210} fill="rgb(217,94,234)" glow="rgb(217,94,234)" />
-      <Suspense fallback={null}>
-        <Hero3D />
-      </Suspense>
       <Particles />
     </main>
   );
