@@ -12,6 +12,7 @@ import {
 import Particles from "./Particles";
 import Reveal from "./Reveal";
 import Orb from "./Orb";
+import Seo from "./Seo";
 
 const services = [
   {
@@ -56,6 +57,10 @@ const included = [
 export default function Services() {
   return (
     <main id="services" className="w-full bg-black relative overflow-hidden">
+      <Seo
+        title="Services"
+        description="Web apps, mobile apps, custom software, cloud/DevOps, and UI/UX design — everything you need to ship software that lasts."
+      />
       <Orb side="right" top="10%" offset={210} fill="rgba(90,142,246,0.2)" glow="rgb(90,142,246)" />
       <Orb side="left" top="80%" offset={210} fill="rgba(208,106,232,0.2)" glow="rgb(208,106,232)" />
       <Particles />

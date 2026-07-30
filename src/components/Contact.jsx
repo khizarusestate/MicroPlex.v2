@@ -5,6 +5,7 @@ import Particles from "./Particles";
 import Reveal from "./Reveal";
 import Orb from "./Orb";
 import { GithubIcon } from "./BrandIcons";
+import Seo from "./Seo";
 
 const info = [{ icon: MapPin, label: "Based in", value: "Karachi, Pakistan" }];
 
@@ -30,6 +31,10 @@ export default function Contact() {
 
   return (
     <main id="contact" className="w-full bg-black relative overflow-hidden">
+      <Seo
+        title="Contact"
+        description="Tell us what you're working on — we typically reply within one business day."
+      />
       <Orb side="left" top="15%" offset={210} fill="rgba(90,142,246,0.2)" glow="rgb(90,142,246)" />
       <Orb side="right" top="70%" offset={210} fill="rgba(73,217,232,0.2)" glow="rgb(73,217,232)" />
       <Particles />

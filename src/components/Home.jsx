@@ -3,6 +3,7 @@ import { Clock, Headphones, Code2 } from "lucide-react";
 import Particles from "./Particles";
 import Reveal from "./Reveal";
 import Orb from "./Orb";
+import Seo from "./Seo";
 
 const features = [
   { icon: Clock, color: "#49D9E8", label: "24 / 7 Availability" },
@@ -16,6 +17,10 @@ export default function Home() {
       id="home"
       className="min-h-screen w-full flex flex-col justify-center items-center gap-10 md:gap-[40px] bg-black relative overflow-hidden pt-32 pb-16 px-4"
     >
+      <Seo
+        title="Home"
+        description="MicroPlex builds web, mobile, and custom software for businesses in Pakistan and beyond — plus our own products, like FixItNow."
+      />
       <Reveal delay={0}>
         <h1 className="w-full sm:w-[85%] md:w-[70%] mx-auto text-[26px] sm:text-[32px] md:text-[40px] text-gray-200 text-center font-[inter] leading-tight bg-gradient-to-r from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent font-bold z-10">
           Building Innovative Digital Solutions for a Smarter Tomorrow.

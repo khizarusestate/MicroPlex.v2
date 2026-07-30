@@ -13,6 +13,7 @@ import {
 import Particles from "./Particles";
 import Reveal from "./Reveal";
 import Orb from "./Orb";
+import Seo from "./Seo";
 import TiltCard from "./TiltCard";
 
 /* ---------- shared count-up (mirrors the one on the short About section) ---------- */
@@ -140,6 +141,10 @@ const culture = [
 export default function AboutDetailed() {
   return (
     <main className="w-full bg-black relative overflow-hidden">
+      <Seo
+        title="About Us"
+        description="The people, principles, and path behind MicroPlex — our mission, journey, values, and leadership."
+      />
       {/* ================= HERO — grid + mesh glow, distinct from the particle field ================= */}
       <section className="relative z-10 min-h-screen flex flex-col justify-center items-center gap-6 px-6 text-center pt-32 pb-20 overflow-hidden">
         <div className="absolute inset-0 bg-grid" />

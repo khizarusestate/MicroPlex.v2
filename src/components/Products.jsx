@@ -13,6 +13,7 @@ import Particles from "./Particles";
 import Reveal from "./Reveal";
 import TiltCard from "./TiltCard";
 import Orb from "./Orb";
+import Seo from "./Seo";
 
 const fixItNowFeatures = [
   {
@@ -44,6 +45,10 @@ const fixItNowFeatures = [
 export default function Products() {
   return (
     <main className="w-full bg-black relative overflow-hidden">
+      <Seo
+        title="Products"
+        description="FixItNow — Pakistan's home services marketplace, live today. Plus MicroPlex Commerce, our upcoming e-commerce platform."
+      />
       <Orb side="left" top="12%" offset={210} fill="rgba(90,142,246,0.2)" glow="rgb(90,142,246)" />
       <Orb side="right" top="62%" offset={210} fill="rgba(208,106,232,0.2)" glow="rgb(208,106,232)" />
       <Particles />
