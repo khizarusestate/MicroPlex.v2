@@ -52,7 +52,7 @@ export default function Header() {
                     <motion.div
                       layoutId="activeNavPill"
                       transition={{ type: "spring", stiffness: 380, damping: 32 }}
-                      className="absolute inset-0 rounded-full bg-gradient-to-r from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] shadow-[0_0_20px_rgba(90,142,246,0.5)]"
+                      className="absolute inset-0 rounded-full bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] shadow-[0_0_20px_rgba(90,142,246,0.5)]"
                     />
                   )}
                 </li>
@@ -63,7 +63,7 @@ export default function Header() {
 
         <Link
           to="/contact"
-          className="hidden md:inline-block px-7 py-2.5 rounded-full font-bold text-gray-900 bg-gradient-to-r from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] shadow-[0_0_25px_rgba(90,142,246,0.5)] hover:scale-105 hover:shadow-[0_0_45px_rgba(90,142,246,0.8)] transition-all duration-300"
+          className="hidden md:inline-block px-7 py-2.5 rounded-full font-bold text-gray-900 bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] shadow-[0_0_25px_rgba(90,142,246,0.5)] hover:scale-105 hover:shadow-[0_0_45px_rgba(90,142,246,0.8)] transition-all duration-300"
         >
           CONTACT US
         </Link>
@@ -104,7 +104,7 @@ export default function Header() {
                     {isActive && (
                       <motion.span
                         layoutId="activeNavDotMobile"
-                        className="absolute -bottom-1 left-1/2 -translate-x-1/2 h-[3px] w-6 rounded-full bg-gradient-to-r from-[#49D9E8] to-[#D06AE8]"
+                        className="absolute -bottom-1 left-1/2 -translate-x-1/2 h-[3px] w-6 rounded-full bg-gradient-to-r gradient-animate from-[#49D9E8] to-[#D06AE8]"
                         transition={{ type: "spring", stiffness: 380, damping: 32 }}
                       />
                     )}
@@ -116,7 +116,7 @@ export default function Header() {
           <Link
             to="/contact"
             onClick={() => setOpen(false)}
-            className="text-center px-7 py-2.5 rounded-full font-bold text-gray-900 bg-gradient-to-r from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] shadow-[0_0_25px_rgba(90,142,246,0.5)] transition-all duration-300"
+            className="text-center px-7 py-2.5 rounded-full font-bold text-gray-900 bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] shadow-[0_0_25px_rgba(90,142,246,0.5)] transition-all duration-300"
           >
             CONTACT US
           </Link>

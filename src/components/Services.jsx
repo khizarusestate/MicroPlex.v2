@@ -61,8 +61,8 @@ export default function Services() {
         title="Services"
         description="Web apps, mobile apps, custom software, cloud/DevOps, and UI/UX design — everything you need to ship software that lasts."
       />
-      <Orb side="right" top="10%" offset={210} fill="rgba(90,142,246,0.2)" glow="rgb(90,142,246)" />
-      <Orb side="left" top="80%" offset={210} fill="rgba(208,106,232,0.2)" glow="rgb(208,106,232)" />
+      <Orb side="right" top="10%" offset={210} />
+      <Orb side="left" top="80%" offset={210} delay={4} />
       <Particles />
 
       {/* ---------- HERO ---------- */}
@@ -81,7 +81,7 @@ export default function Services() {
           </span>
         </Reveal>
         <Reveal delay={0.1}>
-          <h1 className="w-[90%] md:w-[65%] mx-auto text-[26px] md:text-[48px] font-[inter] font-bold leading-tight bg-gradient-to-r from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent">
+          <h1 className="w-[90%] md:w-[65%] mx-auto text-[26px] md:text-[48px] font-[inter] font-bold leading-tight bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent">
             Everything You Need to Ship Software That Lasts.
           </h1>
         </Reveal>
@@ -157,13 +157,13 @@ export default function Services() {
       {/* ---------- CTA ---------- */}
       <section className="relative z-10 flex flex-col items-center gap-6 px-6 py-24 text-center">
         <Reveal className="flex flex-col items-center gap-6">
-          <h2 className="w-[90%] md:w-[55%] mx-auto text-[22px] md:text-[34px] font-[inter] font-bold leading-tight bg-gradient-to-r from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent">
+          <h2 className="w-[90%] md:w-[55%] mx-auto text-[22px] md:text-[34px] font-[inter] font-bold leading-tight bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent">
             Not Sure Which Service Fits?
           </h2>
           <div className="flex flex-wrap justify-center gap-6 orbitron">
             <Link
               to="/contact"
-              className="px-8 py-3 rounded-full font-bold text-gray-900 bg-gradient-to-r from-[#49D9E8] via-[#5A8EF6] to-[#5A8EF6] shadow-[0_0_35px_rgba(90,142,246,0.5)] hover:shadow-[0_0_60px_rgba(90,142,246,0.8)] hover:scale-105 transition-all duration-300 border border-white/20"
+              className="px-8 py-3 rounded-full font-bold text-gray-900 bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#5A8EF6] shadow-[0_0_35px_rgba(90,142,246,0.5)] hover:shadow-[0_0_60px_rgba(90,142,246,0.8)] hover:scale-105 transition-all duration-300 border border-white/20"
             >
               BOOK A CALL
             </Link>

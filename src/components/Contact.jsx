@@ -55,8 +55,8 @@ export default function Contact() {
         title="Contact"
         description="Tell us what you're working on — we typically reply within one business day."
       />
-      <Orb side="left" top="15%" offset={210} fill="rgba(90,142,246,0.2)" glow="rgb(90,142,246)" />
-      <Orb side="right" top="70%" offset={210} fill="rgba(73,217,232,0.2)" glow="rgb(73,217,232)" />
+      <Orb side="left" top="15%" offset={210} />
+      <Orb side="right" top="70%" offset={210} delay={4} />
       <Particles />
 
       {/* ---------- HERO ---------- */}
@@ -75,7 +75,7 @@ export default function Contact() {
           </span>
         </Reveal>
         <Reveal delay={0.1}>
-          <h1 className="w-[90%] md:w-[60%] mx-auto text-[26px] md:text-[48px] font-[inter] font-bold leading-tight bg-gradient-to-r from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent">
+          <h1 className="w-[90%] md:w-[60%] mx-auto text-[26px] md:text-[48px] font-[inter] font-bold leading-tight bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent">
             Let's Build Something Worth Shipping.
           </h1>
         </Reveal>
@@ -184,7 +184,7 @@ export default function Contact() {
           <button
             type="submit"
             disabled={status === "sending"}
-            className="orbitron mt-2 flex items-center justify-center gap-2 px-8 py-3 rounded-full font-bold text-sm text-gray-900 bg-gradient-to-r from-[#49D9E8] via-[#5A8EF6] to-[#5A8EF6] shadow-[0_0_35px_rgba(90,142,246,0.5)] hover:shadow-[0_0_60px_rgba(90,142,246,0.8)] hover:scale-105 transition-all duration-300 border border-white/20 disabled:opacity-60 disabled:hover:scale-100 disabled:cursor-not-allowed"
+            className="orbitron mt-2 flex items-center justify-center gap-2 px-8 py-3 rounded-full font-bold text-sm text-gray-900 bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#5A8EF6] shadow-[0_0_35px_rgba(90,142,246,0.5)] hover:shadow-[0_0_60px_rgba(90,142,246,0.8)] hover:scale-105 transition-all duration-300 border border-white/20 disabled:opacity-60 disabled:hover:scale-100 disabled:cursor-not-allowed"
           >
             {status === "sending"
               ? "Sending..."

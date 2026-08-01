@@ -68,6 +68,47 @@ body,
   cursor: text !important;
 }
 
+/* Animated brand gradient — used on gradient text, buttons, and the active
+   nav pill. Flows forward then back (A->B->C->B->A) via the midpoint
+   keyframe, so it never feels like it's "resetting". */
+@keyframes gradient-flow {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.gradient-animate {
+  background-size: 200% 200%;
+  animation: gradient-flow 6s ease-in-out infinite;
+}
+
+/* Orbs cycle slowly through the three brand colors — purple -> blue ->
+   teal -> purple. Slower than the text/button gradient since these are
+   large ambient background glows, not something you're reading. */
+@keyframes orb-color-cycle {
+  0%,
+  100% {
+    background-color: rgba(208, 106, 232, 0.2);
+    box-shadow: 0 0 var(--spread, 900px) rgb(208, 106, 232);
+  }
+  33% {
+    background-color: rgba(90, 142, 246, 0.2);
+    box-shadow: 0 0 var(--spread, 900px) rgb(90, 142, 246);
+  }
+  66% {
+    background-color: rgba(73, 217, 232, 0.2);
+    box-shadow: 0 0 var(--spread, 900px) rgb(73, 217, 232);
+  }
+}
+
+.orb-animate {
+  animation: orb-color-cycle 12s ease-in-out infinite;
+}
+
 /* Alternate background textures for the detailed About page —
    kept distinct from the particle field used on Home/Services/Contact. */
 .bg-grid {

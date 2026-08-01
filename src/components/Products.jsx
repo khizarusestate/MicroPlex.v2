@@ -49,8 +49,8 @@ export default function Products() {
         title="Products"
         description="FixItNow — Pakistan's home services marketplace, live today. Plus MicroPlex Commerce, our upcoming e-commerce platform."
       />
-      <Orb side="left" top="12%" offset={210} fill="rgba(90,142,246,0.2)" glow="rgb(90,142,246)" />
-      <Orb side="right" top="62%" offset={210} fill="rgba(208,106,232,0.2)" glow="rgb(208,106,232)" />
+      <Orb side="left" top="12%" offset={210} />
+      <Orb side="right" top="62%" offset={210} delay={4} />
       <Particles />
 
       {/* ---------- HERO ---------- */}
@@ -69,7 +69,7 @@ export default function Products() {
           </span>
         </Reveal>
         <Reveal delay={0.15}>
-          <h1 className="w-[92%] md:w-[65%] mx-auto text-[26px] md:text-[48px] font-[inter] font-bold leading-tight bg-gradient-to-r from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent">
+          <h1 className="w-[92%] md:w-[65%] mx-auto text-[26px] md:text-[48px] font-[inter] font-bold leading-tight bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent">
             Things We've Built and Actually Use Ourselves.
           </h1>
         </Reveal>
@@ -86,7 +86,7 @@ export default function Products() {
         <Reveal className="rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 shadow-[0_0_50px_rgba(90,142,246,0.12)] p-8 md:p-14">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
             <div className="flex items-center gap-3">
-              <span className="orbitron text-2xl md:text-3xl font-bold bg-gradient-to-r from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent">
+              <span className="orbitron text-2xl md:text-3xl font-bold bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent">
                 FixItNow
               </span>
               <span className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#49D9E8]/10 border border-[#49D9E8]/30 text-[#49D9E8] text-[11px] orbitron">
@@ -98,7 +98,7 @@ export default function Products() {
               href="https://fixitnow.pk/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full font-bold text-sm text-gray-900 bg-gradient-to-r from-[#49D9E8] via-[#5A8EF6] to-[#5A8EF6] shadow-[0_0_30px_rgba(90,142,246,0.5)] hover:shadow-[0_0_50px_rgba(90,142,246,0.8)] hover:scale-105 transition-all duration-300 orbitron w-fit"
+              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full font-bold text-sm text-gray-900 bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#5A8EF6] shadow-[0_0_30px_rgba(90,142,246,0.5)] hover:shadow-[0_0_50px_rgba(90,142,246,0.8)] hover:scale-105 transition-all duration-300 orbitron w-fit"
             >
               Visit FixItNow <ArrowUpRight className="h-4 w-4" />
             </a>
@@ -174,13 +174,13 @@ export default function Products() {
       {/* ---------- CTA ---------- */}
       <section className="relative z-10 flex flex-col items-center gap-6 px-6 py-24 text-center">
         <Reveal className="flex flex-col items-center gap-6">
-          <h2 className="w-[90%] md:w-[55%] mx-auto text-[22px] md:text-[34px] font-[inter] font-bold leading-tight bg-gradient-to-r from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent">
+          <h2 className="w-[90%] md:w-[55%] mx-auto text-[22px] md:text-[34px] font-[inter] font-bold leading-tight bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent">
             Got a Product Idea of Your Own?
           </h2>
           <div className="flex flex-wrap justify-center gap-6 orbitron">
             <Link
               to="/contact"
-              className="px-8 py-3 rounded-full font-bold text-gray-900 bg-gradient-to-r from-[#49D9E8] via-[#5A8EF6] to-[#5A8EF6] shadow-[0_0_35px_rgba(90,142,246,0.5)] hover:shadow-[0_0_60px_rgba(90,142,246,0.8)] hover:scale-105 transition-all duration-300 border border-white/20"
+              className="px-8 py-3 rounded-full font-bold text-gray-900 bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#5A8EF6] shadow-[0_0_35px_rgba(90,142,246,0.5)] hover:shadow-[0_0_60px_rgba(90,142,246,0.8)] hover:scale-105 transition-all duration-300 border border-white/20"
             >
               LET'S TALK
             </Link>

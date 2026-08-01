@@ -84,7 +84,7 @@ const process = [
 export default function About() {
   return (
     <main id="about" className="w-full bg-black relative overflow-hidden">
-      <Orb side="right" top="8%" offset={210} fill="rgba(208,106,232,0.2)" glow="rgb(208,106,232)" />
+      <Orb side="right" top="8%" offset={210} />
       <Particles />
 
       {/* ---------- HERO ---------- */}
@@ -95,7 +95,7 @@ export default function About() {
           </span>
         </Reveal>
         <Reveal delay={0.1}>
-          <h1 className="w-[90%] md:w-[65%] mx-auto text-[26px] md:text-[48px] font-[inter] font-bold leading-tight bg-gradient-to-r from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent">
+          <h1 className="w-[90%] md:w-[65%] mx-auto text-[26px] md:text-[48px] font-[inter] font-bold leading-tight bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent">
             We Build the Systems Behind Tomorrow's Businesses.
           </h1>
         </Reveal>
@@ -112,7 +112,7 @@ export default function About() {
         <Reveal className="flex flex-col gap-5">
           <h2 className="orbitron text-xl md:text-3xl font-bold text-gray-100">
             Started small.{" "}
-            <span className="bg-gradient-to-r from-[#49D9E8] to-[#5A8EF6] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r gradient-animate from-[#49D9E8] to-[#5A8EF6] bg-clip-text text-transparent">
               Stayed intentional.
             </span>
           </h2>
@@ -128,7 +128,7 @@ export default function About() {
             clients than we could, so every one of them gets our full
             attention.
           </p>
-          <button className="w-fit orbitron mt-2 flex items-center gap-2 px-6 py-3 rounded-full font-bold text-sm text-gray-900 bg-gradient-to-r from-[#49D9E8] via-[#5A8EF6] to-[#5A8EF6] shadow-[0_0_35px_rgba(90,142,246,0.5)] hover:shadow-[0_0_60px_rgba(90,142,246,0.8)] hover:scale-105 transition-all duration-300 border border-white/20">
+          <button className="w-fit orbitron mt-2 flex items-center gap-2 px-6 py-3 rounded-full font-bold text-sm text-gray-900 bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#5A8EF6] shadow-[0_0_35px_rgba(90,142,246,0.5)] hover:shadow-[0_0_60px_rgba(90,142,246,0.8)] hover:scale-105 transition-all duration-300 border border-white/20">
             Work With Us <ArrowUpRight className="h-4 w-4" />
           </button>
         </Reveal>
@@ -143,7 +143,7 @@ export default function About() {
           ].map((s) => (
             <div key={s.label} className="flex items-center justify-between py-5">
               <p className="text-gray-400 text-sm max-w-[60%]">{s.label}</p>
-              <p className="orbitron text-2xl md:text-3xl font-bold bg-gradient-to-r from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent">
+              <p className="orbitron text-2xl md:text-3xl font-bold bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent">
                 <Counter to={s.n} suffix={s.suffix} />
               </p>
             </div>
@@ -197,7 +197,7 @@ export default function About() {
           How a Project Moves
         </h2>
         <div className="relative flex flex-col md:flex-row md:justify-between gap-10 md:gap-4">
-          <div className="hidden md:block absolute top-6 left-0 right-0 h-px bg-gradient-to-r from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] opacity-30" />
+          <div className="hidden md:block absolute top-6 left-0 right-0 h-px bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] opacity-30" />
           {process.map((p, i) => {
             const Icon = p.icon;
             return (
@@ -229,11 +229,11 @@ export default function About() {
       {/* ---------- CTA ---------- */}
       <section className="relative z-10 flex flex-col items-center gap-6 px-6 py-24 text-center">
         <Reveal className="flex flex-col items-center gap-6">
-          <h2 className="w-[90%] md:w-[55%] mx-auto text-[22px] md:text-[34px] font-[inter] font-bold leading-tight bg-gradient-to-r from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent">
+          <h2 className="w-[90%] md:w-[55%] mx-auto text-[22px] md:text-[34px] font-[inter] font-bold leading-tight bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent">
             Have Something Worth Building?
           </h2>
           <div className="flex flex-wrap justify-center gap-6 orbitron">
-            <button className="px-8 py-3 rounded-full font-bold text-gray-900 bg-gradient-to-r from-[#49D9E8] via-[#5A8EF6] to-[#5A8EF6] shadow-[0_0_35px_rgba(90,142,246,0.5)] hover:shadow-[0_0_60px_rgba(90,142,246,0.8)] hover:scale-105 transition-all duration-300 border border-white/20">
+            <button className="px-8 py-3 rounded-full font-bold text-gray-900 bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#5A8EF6] shadow-[0_0_35px_rgba(90,142,246,0.5)] hover:shadow-[0_0_60px_rgba(90,142,246,0.8)] hover:scale-105 transition-all duration-300 border border-white/20">
               START A PROJECT
             </button>
             <button className="px-8 py-3 rounded-full font-bold text-white bg-white/5 backdrop-blur-xl border border-[#D06AE8]/50 shadow-[0_0_30px_rgba(208,106,232,0.4)] hover:bg-[#D06AE8]/20 hover:shadow-[0_0_60px_rgba(208,106,232,0.8)] hover:scale-105 transition-all duration-300">

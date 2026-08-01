@@ -148,8 +148,8 @@ export default function AboutDetailed() {
       {/* ================= HERO — grid + mesh glow, distinct from the particle field ================= */}
       <section className="relative z-10 min-h-screen flex flex-col justify-center items-center gap-6 px-6 text-center pt-32 pb-20 overflow-hidden">
         <div className="absolute inset-0 bg-grid" />
-        <Orb side="left" top="18%" offset={210} fill="rgba(90,142,246,0.2)" glow="rgb(90,142,246)" />
-        <Orb side="right" top="55%" offset={210} fill="rgba(208,106,232,0.2)" glow="rgb(208,106,232)" />
+        <Orb side="left" top="18%" offset={210} />
+        <Orb side="right" top="55%" offset={210} delay={4} />
 
         <Reveal>
           <Link
@@ -161,7 +161,7 @@ export default function AboutDetailed() {
         </Reveal>
 
         <Reveal delay={0.1}>
-          <h1 className="relative z-10 w-[92%] md:w-[70%] mx-auto text-[30px] sm:text-[38px] md:text-[56px] font-[inter] font-bold leading-tight bg-gradient-to-r from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent">
+          <h1 className="relative z-10 w-[92%] md:w-[70%] mx-auto text-[30px] sm:text-[38px] md:text-[56px] font-[inter] font-bold leading-tight bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent">
             The People, Principles, and Path Behind MicroPlex.
           </h1>
         </Reveal>
@@ -340,7 +340,7 @@ export default function AboutDetailed() {
             { n: 99, suffix: "%", label: "Average uptime" },
           ].map((s) => (
             <div key={s.label}>
-              <p className="orbitron text-3xl md:text-5xl font-bold bg-gradient-to-r from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent">
+              <p className="orbitron text-3xl md:text-5xl font-bold bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent">
                 <Counter to={s.n} suffix={s.suffix} />
               </p>
               <p className="text-gray-500 text-xs md:text-sm mt-2">{s.label}</p>
@@ -391,15 +391,15 @@ export default function AboutDetailed() {
 
       {/* ================= CTA — a few orbs, back to the familiar brand language ================= */}
       <section className="relative z-10 flex flex-col items-center gap-6 px-6 py-28 text-center overflow-hidden">
-        <Orb side="left" top="30%" offset={210} fill="rgba(73,217,232,0.2)" glow="rgb(73,217,232)" />
+        <Orb side="left" top="30%" offset={210} delay={8} />
         <Reveal className="relative z-10 flex flex-col items-center gap-6">
-          <h2 className="w-[90%] md:w-[55%] mx-auto text-[22px] md:text-[36px] font-[inter] font-bold leading-tight bg-gradient-to-r from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent">
+          <h2 className="w-[90%] md:w-[55%] mx-auto text-[22px] md:text-[36px] font-[inter] font-bold leading-tight bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent">
             Think We'd Be a Good Fit?
           </h2>
           <div className="flex flex-wrap justify-center gap-6 orbitron">
             <Link
               to="/contact"
-              className="px-8 py-3 rounded-full font-bold text-gray-900 bg-gradient-to-r from-[#49D9E8] via-[#5A8EF6] to-[#5A8EF6] shadow-[0_0_35px_rgba(90,142,246,0.5)] hover:shadow-[0_0_60px_rgba(90,142,246,0.8)] hover:scale-105 transition-all duration-300 border border-white/20"
+              className="px-8 py-3 rounded-full font-bold text-gray-900 bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#5A8EF6] shadow-[0_0_35px_rgba(90,142,246,0.5)] hover:shadow-[0_0_60px_rgba(90,142,246,0.8)] hover:scale-105 transition-all duration-300 border border-white/20"
             >
               START A PROJECT
             </Link>

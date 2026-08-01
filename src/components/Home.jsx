@@ -22,7 +22,7 @@ export default function Home() {
         description="MicroPlex builds web, mobile, and custom software for businesses in Pakistan and beyond — plus our own products, like FixItNow."
       />
       <Reveal delay={0}>
-        <h1 className="w-full sm:w-[85%] md:w-[70%] mx-auto text-[26px] sm:text-[32px] md:text-[40px] text-gray-200 text-center font-[inter] leading-tight bg-gradient-to-r from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent font-bold z-10">
+        <h1 className="w-full sm:w-[85%] md:w-[70%] mx-auto text-[26px] sm:text-[32px] md:text-[40px] text-gray-200 text-center font-[inter] leading-tight bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent font-bold z-10">
           Building Innovative Digital Solutions for a Smarter Tomorrow.
         </h1>
       </Reveal>
@@ -31,7 +31,7 @@ export default function Home() {
         <article className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-[30px] orbitron w-full sm:w-auto">
           <Link
             to="/services"
-            className="w-full sm:w-auto text-center px-8 py-3 rounded-full font-bold text-gray-900 bg-gradient-to-r from-[#49D9E8] via-[#5A8EF6] to-[#5A8EF6] shadow-[0_0_35px_rgba(90,142,246,0.5)] hover:shadow-[0_0_60px_rgba(90,142,246,0.8)] hover:scale-105 transition-all duration-300 border border-white/20"
+            className="w-full sm:w-auto text-center px-8 py-3 rounded-full font-bold text-gray-900 bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#5A8EF6] shadow-[0_0_35px_rgba(90,142,246,0.5)] hover:shadow-[0_0_60px_rgba(90,142,246,0.8)] hover:scale-105 transition-all duration-300 border border-white/20"
           >
             EXPLORE OUR SERVICES
           </Link>
@@ -59,8 +59,8 @@ export default function Home() {
       </Reveal>
 
       {/* orbs: the balls themselves sit off-canvas — only their glow bleeds in */}
-      <Orb side="left" top="20%" offset={210} fill="rgba(90,142,246,0.2)" glow="rgb(90,142,246)" />
-      <Orb side="right" top="40%" offset={210} fill="rgb(217,94,234)" glow="rgb(217,94,234)" />
+      <Orb side="left" top="20%" offset={210} />
+      <Orb side="right" top="40%" offset={210} delay={4} />
       <Particles />
     </main>
   );

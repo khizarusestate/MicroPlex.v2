@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Mail } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 import { GithubIcon, LinkedinIcon, XIcon } from "./BrandIcons";
 
 const links = {
@@ -28,17 +28,25 @@ export default function Footer() {
   return (
     <footer className="relative w-full bg-black overflow-hidden">
       {/* thin gradient line instead of a hard border */}
-      <div className="h-px w-full bg-gradient-to-r from-transparent via-[#5A8EF6]/50 to-transparent" />
+      <div className="h-px w-full bg-gradient-to-r gradient-animate from-transparent via-[#5A8EF6]/50 to-transparent" />
 
       <div className="max-w-6xl mx-auto px-6 py-16 grid gap-12 md:grid-cols-[1.4fr_1fr_1fr]">
         {/* brand */}
         <div className="flex flex-col gap-4">
-          <h3 className="orbitron text-xl font-bold bg-gradient-to-r from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent">
-            YOUR COMPANY
-          </h3>
+          <Link to="/" className="w-fit">
+            <img
+              src="/Images/Logo.png"
+              alt="MicroPlex logo"
+              className="h-11 hover:scale-105 transition-all duration-300"
+            />
+          </Link>
           <p className="text-gray-500 text-sm leading-relaxed max-w-xs">
             Building innovative digital solutions for a smarter tomorrow.
           </p>
+          <div className="flex items-center gap-2 text-gray-500 text-sm">
+            <MapPin className="h-4 w-4 text-[#5A8EF6]" />
+            Gujranwala, Pakistan
+          </div>
           <div className="flex items-center gap-4 mt-2">
             {socials.map(({ icon: Icon, href }, i) => (
               <a
@@ -83,7 +91,7 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col-reverse md:flex-row items-center justify-between gap-4">
           <p className="text-gray-600 text-xs">
-            © {new Date().getFullYear()} Your Company. All rights reserved.
+            © {new Date().getFullYear()} MicroPlex. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             <a href="#" className="text-gray-600 text-xs hover:text-gray-300 transition-colors">
