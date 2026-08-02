@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import Magnetic from "./Magnetic";
 
 const navLinks = [
   { label: "Home", to: "/" },
@@ -61,12 +62,14 @@ export default function Header() {
           </ul>
         </nav>
 
-        <Link
-          to="/contact"
-          className="hidden md:inline-block px-7 py-2.5 rounded-full font-bold text-gray-900 bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] shadow-[0_0_25px_rgba(90,142,246,0.5)] hover:scale-105 hover:shadow-[0_0_45px_rgba(90,142,246,0.8)] transition-all duration-300"
-        >
-          CONTACT US
-        </Link>
+        <Magnetic className="hidden md:inline-block">
+          <Link
+            to="/contact"
+            className="inline-block px-7 py-2.5 rounded-full font-bold text-gray-900 bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] shadow-[0_0_25px_rgba(90,142,246,0.5)] hover:scale-105 hover:shadow-[0_0_45px_rgba(90,142,246,0.8)] transition-all duration-300"
+          >
+            CONTACT US
+          </Link>
+        </Magnetic>
 
         {/* mobile hamburger */}
         <button

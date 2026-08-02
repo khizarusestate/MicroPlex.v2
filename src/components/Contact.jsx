@@ -6,6 +6,8 @@ import Reveal from "./Reveal";
 import Orb from "./Orb";
 import { GithubIcon } from "./BrandIcons";
 import Seo from "./Seo";
+import Magnetic from "./Magnetic";
+import SplitText from "./SplitText";
 
 const info = [{ icon: MapPin, label: "Based in", value: "Karachi, Pakistan" }];
 
@@ -74,11 +76,9 @@ export default function Contact() {
             Get In Touch
           </span>
         </Reveal>
-        <Reveal delay={0.1}>
-          <h1 className="w-[90%] md:w-[60%] mx-auto text-[26px] md:text-[48px] font-[inter] font-bold leading-tight bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent">
-            Let's Build Something Worth Shipping.
-          </h1>
-        </Reveal>
+        <h1 className="w-[90%] md:w-[60%] mx-auto text-[26px] md:text-[48px] font-[inter] font-bold leading-tight bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent">
+          <SplitText text="Let's Build Something Worth Shipping." delay={0.1} />
+        </h1>
         <Reveal delay={0.2}>
           <p className="w-[90%] md:w-[45%] mx-auto text-gray-400 text-sm md:text-base leading-relaxed">
             Tell us what you're working on — we typically reply within one
@@ -181,20 +181,22 @@ export default function Contact() {
               className="bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-gray-200 text-sm outline-none focus:border-[#5A8EF6]/60 transition-colors resize-none"
             />
           </div>
-          <button
-            type="submit"
-            disabled={status === "sending"}
-            className="orbitron mt-2 flex items-center justify-center gap-2 px-8 py-3 rounded-full font-bold text-sm text-gray-900 bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#5A8EF6] shadow-[0_0_35px_rgba(90,142,246,0.5)] hover:shadow-[0_0_60px_rgba(90,142,246,0.8)] hover:scale-105 transition-all duration-300 border border-white/20 disabled:opacity-60 disabled:hover:scale-100 disabled:cursor-not-allowed"
-          >
-            {status === "sending"
-              ? "Sending..."
-              : status === "sent"
-              ? "Message Sent"
-              : "Send Message"}
-            {status !== "sending" && status !== "sent" && (
-              <Send className="h-4 w-4" />
-            )}
-          </button>
+          <Magnetic className="block w-full" strength={0.15}>
+            <button
+              type="submit"
+              disabled={status === "sending"}
+              className="w-full orbitron mt-2 flex items-center justify-center gap-2 px-8 py-3 rounded-full font-bold text-sm text-gray-900 bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#5A8EF6] shadow-[0_0_35px_rgba(90,142,246,0.5)] hover:shadow-[0_0_60px_rgba(90,142,246,0.8)] hover:scale-105 transition-all duration-300 border border-white/20 disabled:opacity-60 disabled:hover:scale-100 disabled:cursor-not-allowed"
+            >
+              {status === "sending"
+                ? "Sending..."
+                : status === "sent"
+                ? "Message Sent"
+                : "Send Message"}
+              {status !== "sending" && status !== "sent" && (
+                <Send className="h-4 w-4" />
+              )}
+            </button>
+          </Magnetic>
           {status === "sent" && (
             <p className="text-[#49D9E8] text-xs text-center">
               Thanks — we'll get back to you shortly.

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import {
   Rocket,
   ShieldCheck,
@@ -13,6 +14,7 @@ import {
 import Particles from "./Particles";
 import Reveal from "./Reveal";
 import Orb from "./Orb";
+import Magnetic from "./Magnetic";
 
 /* Animated count-up for the stats row — triggers once the section enters view */
 function Counter({ to, suffix = "", duration = 1400 }) {
@@ -128,9 +130,14 @@ export default function About() {
             clients than we could, so every one of them gets our full
             attention.
           </p>
-          <button className="w-fit orbitron mt-2 flex items-center gap-2 px-6 py-3 rounded-full font-bold text-sm text-gray-900 bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#5A8EF6] shadow-[0_0_35px_rgba(90,142,246,0.5)] hover:shadow-[0_0_60px_rgba(90,142,246,0.8)] hover:scale-105 transition-all duration-300 border border-white/20">
-            Work With Us <ArrowUpRight className="h-4 w-4" />
-          </button>
+          <Magnetic>
+            <Link
+              to="/contact"
+              className="w-fit orbitron mt-2 flex items-center gap-2 px-6 py-3 rounded-full font-bold text-sm text-gray-900 bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#5A8EF6] shadow-[0_0_35px_rgba(90,142,246,0.5)] hover:shadow-[0_0_60px_rgba(90,142,246,0.8)] hover:scale-105 transition-all duration-300 border border-white/20"
+            >
+              Work With Us <ArrowUpRight className="h-4 w-4" />
+            </Link>
+          </Magnetic>
         </Reveal>
 
         {/* right column — inline stats, no boxes, just rules */}

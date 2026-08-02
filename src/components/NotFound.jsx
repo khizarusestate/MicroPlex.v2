@@ -4,6 +4,8 @@ import Particles from "./Particles";
 import Reveal from "./Reveal";
 import Orb from "./Orb";
 import Seo from "./Seo";
+import Magnetic from "./Magnetic";
+import SplitText from "./SplitText";
 
 export default function NotFound() {
   return (
@@ -23,7 +25,7 @@ export default function NotFound() {
       </Reveal>
       <Reveal delay={0.1}>
         <h1 className="text-gray-100 text-xl md:text-2xl font-bold orbitron">
-          This page took a wrong turn.
+          <SplitText text="This page took a wrong turn." />
         </h1>
       </Reveal>
       <Reveal delay={0.2}>
@@ -33,12 +35,14 @@ export default function NotFound() {
         </p>
       </Reveal>
       <Reveal delay={0.3}>
-        <Link
-          to="/"
-          className="inline-flex items-center gap-2 orbitron px-8 py-3 rounded-full font-bold text-gray-900 bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#5A8EF6] shadow-[0_0_35px_rgba(90,142,246,0.5)] hover:shadow-[0_0_60px_rgba(90,142,246,0.8)] hover:scale-105 transition-all duration-300 border border-white/20"
-        >
-          <ArrowLeft className="h-4 w-4" /> BACK TO HOME
-        </Link>
+        <Magnetic>
+          <Link
+            to="/"
+            className="inline-flex items-center gap-2 orbitron px-8 py-3 rounded-full font-bold text-gray-900 bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#5A8EF6] shadow-[0_0_35px_rgba(90,142,246,0.5)] hover:shadow-[0_0_60px_rgba(90,142,246,0.8)] hover:scale-105 transition-all duration-300 border border-white/20"
+          >
+            <ArrowLeft className="h-4 w-4" /> BACK TO HOME
+          </Link>
+        </Magnetic>
       </Reveal>
     </main>
   );

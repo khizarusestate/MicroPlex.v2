@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUp } from "lucide-react";
+import { useLenis } from "./useLenis";
 
 const SIZE = 56;
 const STROKE = 3;
@@ -10,6 +11,7 @@ const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
 export default function ScrollProgress() {
   const [progress, setProgress] = useState(0);
   const [hovered, setHovered] = useState(false);
+  const lenisRef = useLenis();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,7 +39,11 @@ export default function ScrollProgress() {
       {visible && (
         <motion.button
           type="button"
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          onClick={() =>
+            lenisRef?.current
+              ? lenisRef.current.scrollTo(0)
+              : window.scrollTo({ top: 0, behavior: "smooth" })
+          }
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
           aria-label={`Scroll progress ${Math.round(progress)}% — click to scroll to top`}

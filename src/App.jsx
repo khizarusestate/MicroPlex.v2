@@ -8,6 +8,9 @@ import Testimonials from "./components/Testimonials"
 import Footer from "./components/Footer"
 import ScrollProgress from "./components/ScrollProgress"
 import CustomCursor from "./components/CustomCursor"
+import GrainOverlay from "./components/GrainOverlay"
+import { SmoothScrollProvider } from "./components/SmoothScroll"
+import { useLenis } from "./components/useLenis"
 import PageTransition from "./components/PageTransition"
 import PageLoader from "./components/PageLoader"
 
@@ -18,20 +21,35 @@ const Services = lazy(() => import("./components/Services"))
 const Contact = lazy(() => import("./components/Contact"))
 const NotFound = lazy(() => import("./components/NotFound"))
 
-// Scrolls to a hash target on route change, otherwise resets to top.
+// Header height, so hash-scrolled sections don't land hidden underneath it.
+const HEADER_OFFSET = -90
+
+// Scrolls to a hash target on route change, otherwise resets to top —
+// routed through Lenis when smooth scroll is active, native APIs otherwise.
 function ScrollManager() {
   const location = useLocation()
+  const lenisRef = useLenis()
 
   useEffect(() => {
     if (location.hash) {
       const el = document.querySelector(location.hash)
       if (el) {
-        requestAnimationFrame(() => el.scrollIntoView({ behavior: "smooth" }))
+        requestAnimationFrame(() => {
+          if (lenisRef?.current) {
+            lenisRef.current.scrollTo(el, { offset: HEADER_OFFSET })
+          } else {
+            el.scrollIntoView({ behavior: "smooth" })
+          }
+        })
         return
       }
     }
-    window.scrollTo({ top: 0, left: 0, behavior: "auto" })
-  }, [location.pathname, location.hash])
+    if (lenisRef?.current) {
+      lenisRef.current.scrollTo(0, { immediate: true })
+    } else {
+      window.scrollTo({ top: 0, left: 0, behavior: "auto" })
+    }
+  }, [location.pathname, location.hash, lenisRef])
 
   return null
 }
@@ -50,7 +68,8 @@ export default function App() {
   const location = useLocation()
 
   return (
-    <>
+    <SmoothScrollProvider>
+      <GrainOverlay />
       <CustomCursor />
       <ScrollProgress />
       <ScrollManager />
@@ -68,6 +87,6 @@ export default function App() {
         </AnimatePresence>
       </Suspense>
       <Footer />
-    </>
+    </SmoothScrollProvider>
   )
 }

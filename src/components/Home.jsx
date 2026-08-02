@@ -4,6 +4,8 @@ import Particles from "./Particles";
 import Reveal from "./Reveal";
 import Orb from "./Orb";
 import Seo from "./Seo";
+import Magnetic from "./Magnetic";
+import SplitText from "./SplitText";
 
 const features = [
   { icon: Clock, color: "#49D9E8", label: "24 / 7 Availability" },
@@ -21,26 +23,28 @@ export default function Home() {
         title="Home"
         description="MicroPlex builds web, mobile, and custom software for businesses in Pakistan and beyond — plus our own products, like FixItNow."
       />
-      <Reveal delay={0}>
-        <h1 className="w-full sm:w-[85%] md:w-[70%] mx-auto text-[26px] sm:text-[32px] md:text-[40px] text-gray-200 text-center font-[inter] leading-tight bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent font-bold z-10">
-          Building Innovative Digital Solutions for a Smarter Tomorrow.
-        </h1>
-      </Reveal>
+      <h1 className="w-full sm:w-[85%] md:w-[70%] mx-auto text-[26px] sm:text-[32px] md:text-[40px] text-gray-200 text-center font-[inter] leading-tight bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent font-bold z-10">
+        <SplitText text="Building Innovative Digital Solutions for a Smarter Tomorrow." />
+      </h1>
 
       <Reveal delay={0.15} className="w-full sm:w-auto z-10">
         <article className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-[30px] orbitron w-full sm:w-auto">
-          <Link
-            to="/services"
-            className="w-full sm:w-auto text-center px-8 py-3 rounded-full font-bold text-gray-900 bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#5A8EF6] shadow-[0_0_35px_rgba(90,142,246,0.5)] hover:shadow-[0_0_60px_rgba(90,142,246,0.8)] hover:scale-105 transition-all duration-300 border border-white/20"
-          >
-            EXPLORE OUR SERVICES
-          </Link>
-          <Link
-            to="/products"
-            className="w-full sm:w-auto text-center px-8 py-3 rounded-full font-bold text-white bg-white/5 backdrop-blur-xl border border-[#D06AE8]/50 shadow-[0_0_30px_rgba(208,106,232,0.4)] hover:bg-[#D06AE8]/20 hover:shadow-[0_0_60px_rgba(208,106,232,0.8)] hover:scale-105 transition-all duration-300"
-          >
-            SEE OUR PRODUCTS
-          </Link>
+          <Magnetic className="w-full sm:w-auto sm:inline-block">
+            <Link
+              to="/services"
+              className="w-full sm:w-auto text-center px-8 py-3 rounded-full font-bold text-gray-900 bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#5A8EF6] shadow-[0_0_35px_rgba(90,142,246,0.5)] hover:shadow-[0_0_60px_rgba(90,142,246,0.8)] hover:scale-105 transition-all duration-300 border border-white/20 block"
+            >
+              EXPLORE OUR SERVICES
+            </Link>
+          </Magnetic>
+          <Magnetic className="w-full sm:w-auto sm:inline-block">
+            <Link
+              to="/products"
+              className="w-full sm:w-auto text-center px-8 py-3 rounded-full font-bold text-white bg-white/5 backdrop-blur-xl border border-[#D06AE8]/50 shadow-[0_0_30px_rgba(208,106,232,0.4)] hover:bg-[#D06AE8]/20 hover:shadow-[0_0_60px_rgba(208,106,232,0.8)] hover:scale-105 transition-all duration-300 block"
+            >
+              SEE OUR PRODUCTS
+            </Link>
+          </Magnetic>
         </article>
       </Reveal>
 

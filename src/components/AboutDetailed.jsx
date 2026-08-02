@@ -14,6 +14,8 @@ import Particles from "./Particles";
 import Reveal from "./Reveal";
 import Orb from "./Orb";
 import Seo from "./Seo";
+import Magnetic from "./Magnetic";
+import SplitText from "./SplitText";
 import TiltCard from "./TiltCard";
 
 /* ---------- shared count-up (mirrors the one on the short About section) ---------- */
@@ -160,11 +162,9 @@ export default function AboutDetailed() {
           </Link>
         </Reveal>
 
-        <Reveal delay={0.1}>
-          <h1 className="relative z-10 w-[92%] md:w-[70%] mx-auto text-[30px] sm:text-[38px] md:text-[56px] font-[inter] font-bold leading-tight bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent">
-            The People, Principles, and Path Behind MicroPlex.
-          </h1>
-        </Reveal>
+        <h1 className="relative z-10 w-[92%] md:w-[70%] mx-auto text-[30px] sm:text-[38px] md:text-[56px] font-[inter] font-bold leading-tight bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent">
+          <SplitText text="The People, Principles, and Path Behind MicroPlex." delay={0.1} />
+        </h1>
 
         <Reveal delay={0.2}>
           <p className="relative z-10 w-[92%] md:w-[55%] mx-auto text-gray-400 text-sm md:text-lg leading-relaxed">
@@ -397,18 +397,22 @@ export default function AboutDetailed() {
             Think We'd Be a Good Fit?
           </h2>
           <div className="flex flex-wrap justify-center gap-6 orbitron">
-            <Link
-              to="/contact"
-              className="px-8 py-3 rounded-full font-bold text-gray-900 bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#5A8EF6] shadow-[0_0_35px_rgba(90,142,246,0.5)] hover:shadow-[0_0_60px_rgba(90,142,246,0.8)] hover:scale-105 transition-all duration-300 border border-white/20"
-            >
-              START A PROJECT
-            </Link>
-            <Link
-              to="/services"
-              className="px-8 py-3 rounded-full font-bold text-white bg-white/5 backdrop-blur-xl border border-[#D06AE8]/50 shadow-[0_0_30px_rgba(208,106,232,0.4)] hover:bg-[#D06AE8]/20 hover:shadow-[0_0_60px_rgba(208,106,232,0.8)] hover:scale-105 transition-all duration-300 flex items-center gap-2"
-            >
-              SEE OUR SERVICES <ArrowUpRight className="h-4 w-4" />
-            </Link>
+            <Magnetic>
+              <Link
+                to="/contact"
+                className="inline-block px-8 py-3 rounded-full font-bold text-gray-900 bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#5A8EF6] shadow-[0_0_35px_rgba(90,142,246,0.5)] hover:shadow-[0_0_60px_rgba(90,142,246,0.8)] hover:scale-105 transition-all duration-300 border border-white/20"
+              >
+                START A PROJECT
+              </Link>
+            </Magnetic>
+            <Magnetic>
+              <Link
+                to="/services"
+                className="inline-flex items-center gap-2 px-8 py-3 rounded-full font-bold text-white bg-white/5 backdrop-blur-xl border border-[#D06AE8]/50 shadow-[0_0_30px_rgba(208,106,232,0.4)] hover:bg-[#D06AE8]/20 hover:shadow-[0_0_60px_rgba(208,106,232,0.8)] hover:scale-105 transition-all duration-300"
+              >
+                SEE OUR SERVICES <ArrowUpRight className="h-4 w-4" />
+              </Link>
+            </Magnetic>
           </div>
         </Reveal>
       </section>
