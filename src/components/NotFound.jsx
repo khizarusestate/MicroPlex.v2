@@ -13,6 +13,7 @@ export default function NotFound() {
       <Seo
         title="Page Not Found"
         description="The page you're looking for doesn't exist."
+        noIndex
       />
       <Orb side="left" top="25%" offset={210} />
       <Orb side="right" top="65%" offset={210} delay={4} />

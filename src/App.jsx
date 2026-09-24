@@ -9,6 +9,7 @@ import Footer from "./components/Footer"
 import ScrollProgress from "./components/ScrollProgress"
 import CustomCursor from "./components/CustomCursor"
 import GrainOverlay from "./components/GrainOverlay"
+import IntroSplash from "./components/IntroSplash"
 import { SmoothScrollProvider } from "./components/SmoothScroll"
 import { useLenis } from "./components/useLenis"
 import PageTransition from "./components/PageTransition"
@@ -69,6 +70,7 @@ export default function App() {
 
   return (
     <SmoothScrollProvider>
+      <IntroSplash />
       <GrainOverlay />
       <CustomCursor />
       <ScrollProgress />
