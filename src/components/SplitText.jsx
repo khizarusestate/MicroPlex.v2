@@ -17,16 +17,28 @@ const word = {
   },
 };
 
-export default function SplitText({ text, delay = 0 }) {
+// controlled + active: same escape hatch as Reveal.jsx — lets a caller
+// drive the reveal itself instead of scroll visibility. Default
+// (uncontrolled) behavior is untouched.
+export default function SplitText({
+  text,
+  delay = 0,
+  controlled = false,
+  active = true,
+}) {
   const words = text.split(" ");
+
+  const scrollProps = controlled
+    ? {}
+    : { whileInView: "visible", viewport: { once: true, amount: 0.4 } };
 
   return (
     <motion.span
       variants={container}
       initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.4 }}
+      animate={controlled ? (active ? "visible" : "hidden") : undefined}
       custom={delay}
+      {...scrollProps}
     >
       {words.map((w, i) => (
         <motion.span

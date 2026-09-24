@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const SEEN_KEY = "mp_intro_seen";
 const HOLD_MS = 1750; // total time on screen before the exit fade starts
 const RING_COLORS = ["#49D9E8", "#5A8EF6", "#D06AE8"];
 
@@ -21,11 +20,10 @@ const INTRO_PARTICLES = Array.from({ length: 16 }, (_, i) => {
 });
 
 /**
- * Plays once per browser session, on the very first load — not on every
- * client-side route change (App only mounts once, so this naturally
- * doesn't replay on internal navigation) and not again if the tab
- * reloads later in the same session. Skips outright for
- * prefers-reduced-motion, same pattern as CustomCursor.jsx.
+ * Plays on every full page load (every hard refresh / fresh visit) — not
+ * on client-side route changes, since App only mounts once and internal
+ * navigation never remounts it. Skips outright for prefers-reduced-motion,
+ * same pattern as CustomCursor.jsx.
  *
  * Sequence (game-boot style, all on one timeline):
  *   1. center glow blooms
@@ -34,11 +32,14 @@ const INTRO_PARTICLES = Array.from({ length: 16 }, (_, i) => {
  *   4. the logo blur-scales into focus, with a light sweep across it
  *   5. a quick flash punctuates the reveal
  *   6. the whole thing fades + scales out into the site
+ *
+ * onComplete fires the moment the exit fade begins (not after it
+ * finishes), so whatever's underneath can start its own reveal and the
+ * two overlap into one continuous motion instead of a hard cut.
  */
-export default function IntroSplash() {
+export default function IntroSplash({ onComplete }) {
   const [show, setShow] = useState(() => {
     if (typeof window === "undefined") return false;
-    if (window.sessionStorage.getItem(SEEN_KEY)) return false;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       return false;
     }
@@ -48,11 +49,17 @@ export default function IntroSplash() {
   const particles = INTRO_PARTICLES;
 
   useEffect(() => {
-    window.sessionStorage.setItem(SEEN_KEY, "1");
-    if (!show) return;
+    if (!show) {
+      onComplete?.();
+      return;
+    }
 
     document.body.style.overflow = "hidden";
-    const t = setTimeout(() => setShow(false), HOLD_MS);
+    const t = setTimeout(() => {
+      setShow(false);
+      document.body.style.overflow = "";
+      onComplete?.();
+    }, HOLD_MS);
     return () => {
       clearTimeout(t);
       document.body.style.overflow = "";

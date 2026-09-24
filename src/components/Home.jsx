@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Clock, Headphones, Code2 } from "lucide-react";
 import Particles from "./Particles";
@@ -13,21 +14,38 @@ const features = [
   { icon: Code2, color: "#D06AE8", label: "Custom IT Solutions" },
 ];
 
-export default function Home() {
+// Home sits directly behind the intro splash, so its entrance is
+// choreographed rather than left to the default scroll-reveal: the whole
+// section breathes in first (soft scale + fade), then the heading, CTAs,
+// and feature pills stagger in on top of that — starting the instant the
+// splash begins clearing (introReady), not on mount.
+export default function Home({ introReady = true }) {
   return (
-    <main
+    <motion.main
       id="home"
       className="min-h-screen w-full flex flex-col justify-center items-center gap-10 md:gap-[40px] bg-black relative overflow-hidden pt-32 pb-16 px-4"
+      initial={{ opacity: 0, scale: 1.03 }}
+      animate={introReady ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 1.03 }}
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
     >
       <Seo
         title="Home"
         description="MicroPlex builds web, mobile, and custom software for businesses in Pakistan and beyond — plus our own products, like FixItNow."
       />
       <h1 className="w-full sm:w-[85%] md:w-[70%] mx-auto text-[26px] sm:text-[32px] md:text-[40px] text-gray-200 text-center font-[inter] leading-tight bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent font-bold z-10">
-        <SplitText text="Building Innovative Digital Solutions for a Smarter Tomorrow." />
+        <SplitText
+          text="Building Innovative Digital Solutions for a Smarter Tomorrow."
+          controlled
+          active={introReady}
+          delay={0.15}
+        />
       </h1>
 
-      <Reveal delay={0.15} className="w-full sm:w-auto z-10">
+      <Reveal
+        controlled
+        active={introReady}
+        delay={0.45}
+        className="w-full sm:w-auto z-10">
         <article className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-[30px] orbitron w-full sm:w-auto">
           <Magnetic className="w-full sm:w-auto sm:inline-block">
             <Link
@@ -48,7 +66,12 @@ export default function Home() {
         </article>
       </Reveal>
 
-      <Reveal delay={0.3} className="z-10 mt-4 w-full">
+      <Reveal
+        controlled
+        active={introReady}
+        delay={0.6}
+        className="z-10 mt-4 w-full"
+      >
         <article className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 lg:gap-[100px] orbitron">
           {features.map(({ icon: Icon, color, label }) => (
             <div
@@ -66,6 +89,6 @@ export default function Home() {
       <Orb side="left" top="20%" offset={210} />
       <Orb side="right" top="40%" offset={210} delay={4} />
       <Particles />
-    </main>
+    </motion.main>
   );
 }

@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect } from "react"
+import { lazy, Suspense, useCallback, useEffect, useState } from "react"
 import { Routes, Route, useLocation } from "react-router-dom"
 import { AnimatePresence } from "framer-motion"
 import Header from "./components/Header"
@@ -55,10 +55,14 @@ function ScrollManager() {
   return null
 }
 
-function HomePage() {
+// introReady only matters to Home — its hero is the thing sitting right
+// behind the splash, so it's the one page whose entrance is choreographed
+// to start exactly as the splash clears. Every other route just keeps its
+// normal reveal-on-scroll behavior.
+function HomePage({ introReady }) {
   return (
     <>
-      <Home />
+      <Home introReady={introReady} />
       <About />
       <Testimonials />
     </>
@@ -67,10 +71,12 @@ function HomePage() {
 
 export default function App() {
   const location = useLocation()
+  const [introReady, setIntroReady] = useState(false)
+  const handleIntroComplete = useCallback(() => setIntroReady(true), [])
 
   return (
     <SmoothScrollProvider>
-      <IntroSplash />
+      <IntroSplash onComplete={handleIntroComplete} />
       <GrainOverlay />
       <CustomCursor />
       <ScrollProgress />
@@ -79,7 +85,7 @@ export default function App() {
       <Suspense fallback={<PageLoader />}>
         <AnimatePresence mode="wait" initial={false}>
           <Routes location={location} key={location.pathname}>
-            <Route path="/" element={<PageTransition><HomePage /></PageTransition>} />
+            <Route path="/" element={<PageTransition><HomePage introReady={introReady} /></PageTransition>} />
             <Route path="/about" element={<PageTransition><AboutDetailed /></PageTransition>} />
             <Route path="/products" element={<PageTransition><Products /></PageTransition>} />
             <Route path="/services" element={<PageTransition><Services /></PageTransition>} />
