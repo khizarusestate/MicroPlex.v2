@@ -18,7 +18,7 @@ const links = {
 // Only real, working destinations — no placeholder "#" links.
 const socials = [
   { icon: GithubIcon, href: "https://github.com/khizarusestate" },
-  { icon: WhatsappIcon, href: "https://wa.me/92301220345" },
+  { icon: WhatsappIcon, href: "https://wa.me/923012220345" },
   { icon: Mail, href: "mailto:abdulhadi6252671@gmail.com" },
 ];
 

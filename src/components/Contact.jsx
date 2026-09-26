@@ -13,8 +13,8 @@ const info = [{ icon: MapPin, label: "Based in", value: "Gujranwala, Pakistan" }
 
 // Icon-only — no link text/URLs rendered on the page, just the href in code.
 const quickLinks = [
-  { icon: Phone, href: "tel:+92301220345", label: "Call us" },
-  { icon: WhatsappIcon, href: "https://wa.me/92301220345", label: "WhatsApp us" },
+  { icon: Phone, href: "tel:+923012220345", label: "Call us" },
+  { icon: WhatsappIcon, href: "https://wa.me/923012220345", label: "WhatsApp us" },
   { icon: Mail, href: "mailto:abdulhadi6252671@gmail.com", label: "Email us" },
   { icon: GithubIcon, href: "https://github.com/khizarusestate", label: "GitHub" },
 ];
