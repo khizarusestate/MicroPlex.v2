@@ -12,7 +12,6 @@ import CustomCursor from "./components/CustomCursor"
 import GrainOverlay from "./components/GrainOverlay"
 import IntroSplash from "./components/IntroSplash"
 import WhatsAppButton from "./components/WhatsAppButton"
-import ScrollToTop from "./components/ScrollToTop"
 import { SmoothScrollProvider } from "./components/SmoothScroll"
 import { useLenis } from "./components/useLenis"
 import PageTransition from "./components/PageTransition"
@@ -88,7 +87,6 @@ export default function App() {
       <ScrollManager />
       <Header />
       <WhatsAppButton />
-      <ScrollToTop />
       <Suspense fallback={<PageLoader />}>
         <AnimatePresence mode="wait" initial={false}>
           <Routes location={location} key={location.pathname}>
