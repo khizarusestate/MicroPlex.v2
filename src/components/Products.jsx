@@ -8,6 +8,7 @@ import {
   ArrowLeft,
   Lock,
   ShoppingBag,
+  Bot,
 } from "lucide-react";
 import Particles from "./Particles";
 import Reveal from "./Reveal";
@@ -49,7 +50,7 @@ export default function Products() {
     <main className="w-full bg-black relative overflow-hidden">
       <Seo
         title="Products"
-        description="FixItNow — Pakistan's home services marketplace, live today. Plus MicroPlex Commerce, our upcoming e-commerce platform."
+        description="FixItNow — Pakistan's home services marketplace, live today. Plus MicroPlex Commerce and MicroPlex AI, our upcoming ventures."
       />
       <Orb side="left" top="12%" offset={210} />
       <Orb side="right" top="62%" offset={210} delay={4} />
@@ -169,6 +170,38 @@ export default function Products() {
             Pakistan's market — storefronts, payments, and logistics designed
             around how people here actually shop online. Still in active
             development.
+          </p>
+        </Reveal>
+      </section>
+
+      {/* ---------- MICROPLEX AI — coming soon ---------- */}
+      <section className="relative z-10 max-w-6xl mx-auto px-6 py-16">
+        <Reveal className="relative overflow-hidden rounded-3xl bg-white/[0.03] backdrop-blur-xl border border-white/10 border-dashed p-8 md:p-14">
+          <div className="absolute inset-0 bg-grid opacity-40 pointer-events-none" />
+
+          <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+            <div className="flex items-center gap-3">
+              <span className="orbitron text-2xl md:text-3xl font-bold text-gray-300">
+                MicroPlex AI
+              </span>
+              <span className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/15 text-gray-400 text-[11px] orbitron">
+                <Lock className="h-3 w-3" /> COMING SOON
+              </span>
+            </div>
+            <button
+              disabled
+              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full font-bold text-sm text-gray-500 bg-white/5 border border-white/10 cursor-not-allowed w-fit"
+            >
+              <Bot className="h-4 w-4" /> Notify Me
+            </button>
+          </div>
+
+          <p className="relative z-10 text-gray-500 text-sm md:text-base leading-relaxed max-w-3xl">
+            Our dedicated research and development division — building what
+            comes next. MicroPlex AI is focused on advancing intelligent
+            technology: pioneering new software, AI-driven robotic products,
+            autonomous robotic machines, and custom semiconductor design.
+            Let's begin the search for a new frontier of life.
           </p>
         </Reveal>
       </section>

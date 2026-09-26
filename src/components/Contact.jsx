@@ -9,7 +9,7 @@ import Seo from "./Seo";
 import Magnetic from "./Magnetic";
 import SplitText from "./SplitText";
 
-const info = [{ icon: MapPin, label: "Based in", value: "Karachi, Pakistan" }];
+const info = [{ icon: MapPin, label: "Based in", value: "Gujranwala, Pakistan" }];
 
 // Icon-only — no link text/URLs rendered on the page, just the href in code.
 const quickLinks = [
