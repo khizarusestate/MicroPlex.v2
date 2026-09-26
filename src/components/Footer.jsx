@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Mail, MapPin } from "lucide-react";
-import { GithubIcon, LinkedinIcon, XIcon } from "./BrandIcons";
+import { GithubIcon, WhatsappIcon } from "./BrandIcons";
 
 const links = {
   Company: [
@@ -11,16 +11,14 @@ const links = {
   ],
   Explore: [
     { label: "Home", to: "/" },
-    { label: "Coming Soon", to: null },
-    { label: "Careers", to: null },
-    { label: "Blog", to: null },
+    { label: "Coming Soon", to: "/products" },
   ],
 };
 
+// Only real, working destinations — no placeholder "#" links.
 const socials = [
   { icon: GithubIcon, href: "https://github.com/khizarusestate" },
-  { icon: LinkedinIcon, href: "#" },
-  { icon: XIcon, href: "#" },
+  { icon: WhatsappIcon, href: "https://wa.me/92301220345" },
   { icon: Mail, href: "mailto:abdulhadi6252671@gmail.com" },
 ];
 
@@ -52,6 +50,8 @@ export default function Footer() {
               <a
                 key={i}
                 href={href}
+                target={href.startsWith("mailto:") ? undefined : "_blank"}
+                rel={href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
                 className="h-9 w-9 rounded-full flex items-center justify-center border border-white/10 text-gray-400 hover:text-[#5A8EF6] hover:border-[#5A8EF6]/50 hover:shadow-[0_0_20px_rgba(90,142,246,0.3)] transition-all duration-300"
               >
                 <Icon className="h-4 w-4" />
@@ -94,12 +94,12 @@ export default function Footer() {
             © {new Date().getFullYear()} MicroPlex. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
-            <a href="#" className="text-gray-600 text-xs hover:text-gray-300 transition-colors">
+            <Link to="/privacy-policy" className="text-gray-600 text-xs hover:text-gray-300 transition-colors">
               Privacy Policy
-            </a>
-            <a href="#" className="text-gray-600 text-xs hover:text-gray-300 transition-colors">
+            </Link>
+            <Link to="/terms-of-service" className="text-gray-600 text-xs hover:text-gray-300 transition-colors">
               Terms of Service
-            </a>
+            </Link>
           </div>
         </div>
       </div>

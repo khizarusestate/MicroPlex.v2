@@ -1,6 +1,7 @@
 import { lazy, Suspense, useCallback, useEffect, useState } from "react"
 import { Routes, Route, useLocation } from "react-router-dom"
 import { AnimatePresence } from "framer-motion"
+import { Analytics } from "@vercel/analytics/react"
 import Header from "./components/Header"
 import Home from "./components/Home"
 import About from "./components/About"
@@ -10,6 +11,7 @@ import ScrollProgress from "./components/ScrollProgress"
 import CustomCursor from "./components/CustomCursor"
 import GrainOverlay from "./components/GrainOverlay"
 import IntroSplash from "./components/IntroSplash"
+import WhatsAppButton from "./components/WhatsAppButton"
 import { SmoothScrollProvider } from "./components/SmoothScroll"
 import { useLenis } from "./components/useLenis"
 import PageTransition from "./components/PageTransition"
@@ -20,6 +22,8 @@ const AboutDetailed = lazy(() => import("./components/AboutDetailed"))
 const Products = lazy(() => import("./components/Products"))
 const Services = lazy(() => import("./components/Services"))
 const Contact = lazy(() => import("./components/Contact"))
+const PrivacyPolicy = lazy(() => import("./components/PrivacyPolicy"))
+const TermsOfService = lazy(() => import("./components/TermsOfService"))
 const NotFound = lazy(() => import("./components/NotFound"))
 
 // Header height, so hash-scrolled sections don't land hidden underneath it.
@@ -82,6 +86,7 @@ export default function App() {
       <ScrollProgress />
       <ScrollManager />
       <Header />
+      <WhatsAppButton />
       <Suspense fallback={<PageLoader />}>
         <AnimatePresence mode="wait" initial={false}>
           <Routes location={location} key={location.pathname}>
@@ -90,11 +95,14 @@ export default function App() {
             <Route path="/products" element={<PageTransition><Products /></PageTransition>} />
             <Route path="/services" element={<PageTransition><Services /></PageTransition>} />
             <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
+            <Route path="/privacy-policy" element={<PageTransition><PrivacyPolicy /></PageTransition>} />
+            <Route path="/terms-of-service" element={<PageTransition><TermsOfService /></PageTransition>} />
             <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
           </Routes>
         </AnimatePresence>
       </Suspense>
       <Footer />
+      <Analytics />
     </SmoothScrollProvider>
   )
 }

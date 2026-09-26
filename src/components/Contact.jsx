@@ -4,7 +4,7 @@ import { Mail, Phone, MapPin, Send, ArrowLeft } from "lucide-react";
 import Particles from "./Particles";
 import Reveal from "./Reveal";
 import Orb from "./Orb";
-import { GithubIcon } from "./BrandIcons";
+import { GithubIcon, WhatsappIcon } from "./BrandIcons";
 import Seo from "./Seo";
 import Magnetic from "./Magnetic";
 import SplitText from "./SplitText";
@@ -14,12 +14,13 @@ const info = [{ icon: MapPin, label: "Based in", value: "Gujranwala, Pakistan" }
 // Icon-only — no link text/URLs rendered on the page, just the href in code.
 const quickLinks = [
   { icon: Phone, href: "tel:+92301220345", label: "Call us" },
+  { icon: WhatsappIcon, href: "https://wa.me/92301220345", label: "WhatsApp us" },
   { icon: Mail, href: "mailto:abdulhadi6252671@gmail.com", label: "Email us" },
   { icon: GithubIcon, href: "https://github.com/khizarusestate", label: "GitHub" },
 ];
 
 export default function Contact() {
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", message: "", company: "" });
   const [status, setStatus] = useState("idle"); // idle | sending | sent | error
   const [errorMsg, setErrorMsg] = useState("");
 
@@ -44,7 +45,7 @@ export default function Contact() {
       }
 
       setStatus("sent");
-      setForm({ name: "", email: "", message: "" });
+      setForm({ name: "", email: "", message: "", company: "" });
     } catch (err) {
       setStatus("error");
       setErrorMsg(err.message || "Something went wrong. Please try again.");
@@ -140,6 +141,22 @@ export default function Contact() {
           onSubmit={handleSubmit}
           className="flex flex-col gap-5 p-8"
         >
+          {/* honeypot — hidden from real visitors, bots tend to fill it anyway */}
+          <div
+            aria-hidden="true"
+            style={{ position: "absolute", left: "-9999px", width: 1, height: 1, overflow: "hidden" }}
+          >
+            <label htmlFor="company">Company</label>
+            <input
+              id="company"
+              name="company"
+              type="text"
+              tabIndex={-1}
+              autoComplete="off"
+              value={form.company}
+              onChange={handleChange}
+            />
+          </div>
           <div className="flex flex-col gap-2">
             <label className="text-gray-400 text-xs orbitron tracking-wide">
               NAME

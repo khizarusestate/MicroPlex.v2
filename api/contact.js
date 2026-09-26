@@ -4,6 +4,14 @@ import nodemailer from "nodemailer";
 const app = express();
 app.use(express.json());
 
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
 // Basic rate-limit-ish guard: reject obviously spammy/empty submissions early.
 function validate(body) {
   const { name, email, message } = body || {};
@@ -16,6 +24,14 @@ function validate(body) {
 }
 
 app.post("/api/contact", async (req, res) => {
+  // Honeypot: a field that's hidden from real visitors via CSS but that
+  // form-filling bots tend to fill in anyway. If it's populated, pretend
+  // success and drop the message — no email sent, and the bot gets no
+  // signal that it was caught.
+  if (req.body?.company) {
+    return res.status(200).json({ success: true });
+  }
+
   const error = validate(req.body);
   if (error) return res.status(400).json({ error });
 
@@ -43,10 +59,10 @@ app.post("/api/contact", async (req, res) => {
       text: `From: ${name} <${email}>\n\n${message}`,
       html: `
         <div style="font-family:sans-serif;font-size:14px;color:#111">
-          <p><strong>Name:</strong> ${name}</p>
-          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Name:</strong> ${escapeHtml(name)}</p>
+          <p><strong>Email:</strong> ${escapeHtml(email)}</p>
           <p><strong>Message:</strong></p>
-          <p>${message.replace(/\n/g, "<br/>")}</p>
+          <p>${escapeHtml(message).replace(/\n/g, "<br/>")}</p>
         </div>
       `,
     });

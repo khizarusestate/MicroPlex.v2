@@ -1,16 +1,46 @@
-# React + Vite
+# MicroPlex
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Marketing and product website for MicroPlex — a software development agency
+building web, mobile, and custom software, alongside our own products like
+[FixItNow](https://fixitnow.pk/).
 
-Currently, two official plugins are available:
+Live at: https://micro-plex2.vercel.app
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Stack
 
-## React Compiler
+- React (Vite)
+- Tailwind CSS
+- Framer Motion
+- React Router
+- Lenis (smooth scroll)
+- Vercel (hosting + Edge Middleware for per-route SEO tags)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Structure
 
-## Expanding the ESLint configuration
+- `src/components/` — every page and shared UI piece (pages are the
+  top-level components: `Home`, `AboutDetailed`, `Products`, `Services`,
+  `Contact`, `PrivacyPolicy`, `TermsOfService`, `NotFound`)
+- `api/contact.js` — serverless function that sends contact-form
+  submissions by email (Vercel + Nodemailer)
+- `middleware.js` — Vercel Edge Middleware that injects real per-route
+  title/description/OG tags into the raw HTML, so link previews on
+  WhatsApp/Facebook/Twitter show the correct page, not just the homepage
+- `public/robots.txt`, `public/sitemap.xml` — SEO basics
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Local development
+
+```bash
+npm install
+npm run dev
+```
+
+To test the contact form locally, copy `.env.example` to `.env` and fill in
+a Gmail address + app password, then run with `vercel dev` (needed for the
+`api/contact.js` serverless function to work).
+
+## Build
+
+```bash
+npm run build   # production build, output in dist/
+npm run lint    # eslint
+```

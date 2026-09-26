@@ -15,7 +15,15 @@
 // the top of the matching page component in src/components/.
 
 export const config = {
-  matcher: ["/", "/about", "/services", "/products", "/contact"],
+  matcher: [
+    "/",
+    "/about",
+    "/services",
+    "/products",
+    "/contact",
+    "/privacy-policy",
+    "/terms-of-service",
+  ],
 };
 
 const SITE_URL = "https://micro-plex2.vercel.app";
@@ -46,6 +54,15 @@ const ROUTES = {
     title: "Contact | MicroPlex",
     description:
       "Tell us what you're working on — we typically reply within one business day.",
+  },
+  "/privacy-policy": {
+    title: "Privacy Policy | MicroPlex",
+    description:
+      "How MicroPlex collects, uses, and protects information submitted through this site.",
+  },
+  "/terms-of-service": {
+    title: "Terms of Service | MicroPlex",
+    description: "The terms governing use of the MicroPlex website.",
   },
 };
 
