@@ -34,7 +34,7 @@ export default function Home({ introReady = true }) {
       />
       <h1 className="w-full sm:w-[85%] md:w-[70%] mx-auto text-[26px] sm:text-[32px] md:text-[40px] text-gray-200 text-center font-[inter] leading-tight bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent font-bold z-10">
         <SplitText
-          text="Building Innovative Digital Solutions for a Smarter Tomorrow."
+          text="Driving Research, Development & AI Innovation for a Smarter Tomorrow."
           controlled
           active={introReady}
           delay={0.15}
