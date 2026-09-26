@@ -198,10 +198,10 @@ export default function Products() {
 
           <p className="relative z-10 text-gray-500 text-sm md:text-base leading-relaxed max-w-3xl">
             Our dedicated research and development division — building what
-            comes next. MicroPlex AI is focused on advancing intelligent
-            technology: pioneering new software, AI-driven robotic products,
-            autonomous robotic machines, and custom semiconductor design.
-            Let's begin the search for a new frontier of life.
+            comes next. MicroPlex AI researches new software for robotics,
+            space connectivity &amp; navigation, AI tools and AI-driven
+            products, semiconductors, and sensors. Let's begin the search
+            for a new frontier of life.
           </p>
         </Reveal>
       </section>

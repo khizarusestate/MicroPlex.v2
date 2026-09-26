@@ -44,6 +44,19 @@ export default function Home({ introReady = true }) {
       <Reveal
         controlled
         active={introReady}
+        delay={0.3}
+        className="w-full sm:w-[85%] md:w-[65%] mx-auto z-10"
+      >
+        <p className="text-gray-400 text-sm sm:text-base text-center leading-relaxed">
+          We research and engineer next-generation software for robotics,
+          space connectivity &amp; navigation, AI tools and products,
+          semiconductors, and sensors.
+        </p>
+      </Reveal>
+
+      <Reveal
+        controlled
+        active={introReady}
         delay={0.45}
         className="w-full sm:w-auto z-10">
         <article className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-[30px] orbitron w-full sm:w-auto">

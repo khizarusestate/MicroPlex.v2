@@ -158,27 +158,39 @@ export default function IntroSplash({ onComplete }) {
             />
           </svg>
 
-          {/* logo reveal — blur-to-focus, with a light sweep passing over it */}
-          <div className="relative overflow-hidden">
-            <motion.img
-              src="/Images/Logo.png"
-              alt="MicroPlex"
-              className="h-14 sm:h-16 relative z-10"
-              initial={{ opacity: 0, scale: 0.7, filter: "blur(12px)" }}
-              animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-              transition={{ duration: 0.55, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
-            />
-            <motion.div
-              className="absolute inset-y-0 w-1/3 z-20 pointer-events-none"
-              style={{
-                background:
-                  "linear-gradient(90deg, transparent, rgba(255,255,255,0.9), transparent)",
-                mixBlendMode: "overlay",
-              }}
-              initial={{ x: "-120%", opacity: 0 }}
-              animate={{ x: "220%", opacity: [0, 1, 0] }}
-              transition={{ duration: 0.6, delay: 0.65, ease: "easeInOut" }}
-            />
+          {/* logo reveal — blur-to-focus, with a light sweep passing over it —
+              plus a short keyword tagline that fades in right after */}
+          <div className="relative z-10 flex flex-col items-center gap-3">
+            <div className="relative overflow-hidden">
+              <motion.img
+                src="/Images/Logo.png"
+                alt="MicroPlex"
+                className="h-14 sm:h-16 relative z-10"
+                initial={{ opacity: 0, scale: 0.7, filter: "blur(12px)" }}
+                animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+                transition={{ duration: 0.55, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
+              />
+              <motion.div
+                className="absolute inset-y-0 w-1/3 z-20 pointer-events-none"
+                style={{
+                  background:
+                    "linear-gradient(90deg, transparent, rgba(255,255,255,0.9), transparent)",
+                  mixBlendMode: "overlay",
+                }}
+                initial={{ x: "-120%", opacity: 0 }}
+                animate={{ x: "220%", opacity: [0, 1, 0] }}
+                transition={{ duration: 0.6, delay: 0.65, ease: "easeInOut" }}
+              />
+            </div>
+
+            <motion.p
+              className="orbitron text-[10px] sm:text-xs tracking-[0.25em] uppercase text-gray-400 text-center px-6"
+              initial={{ opacity: 0, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 1.0, ease: "easeOut" }}
+            >
+              Robotics · Space Navigation · AI · Semiconductors · Sensors
+            </motion.p>
           </div>
 
           {/* punctuating flash, right as the reveal settles */}
