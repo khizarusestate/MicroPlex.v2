@@ -56,6 +56,19 @@ body,
   }
 }
 
+/* Keyboard focus — a glowing ring (not a default browser outline) so it
+   follows each element's own border-radius and matches the site's existing
+   glow aesthetic. Only shows for keyboard navigation (:focus-visible),
+   never on mouse click. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(90, 142, 246, 0.7);
+}
+
 /* Custom cursor — hide the system cursor everywhere except text fields,
    where people still expect the normal I-beam. */
 .custom-cursor-active,
