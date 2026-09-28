@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Mail, Phone, MapPin, Send, ArrowLeft } from "lucide-react";
 import Particles from "./Particles";
 import Reveal from "./Reveal";
@@ -20,6 +20,7 @@ const quickLinks = [
 ];
 
 export default function Contact() {
+  const navigate = useNavigate();
   const [form, setForm] = useState({ name: "", email: "", message: "", company: "" });
   const [status, setStatus] = useState("idle"); // idle | sending | sent | error
   const [errorMsg, setErrorMsg] = useState("");
@@ -45,7 +46,9 @@ export default function Contact() {
       }
 
       setStatus("sent");
-      setForm({ name: "", email: "", message: "", company: "" });
+      navigate("/contact/next-steps", {
+        state: { fromContact: true, name: form.name, email: form.email },
+      });
     } catch (err) {
       setStatus("error");
       setErrorMsg(err.message || "Something went wrong. Please try again.");
@@ -214,11 +217,6 @@ export default function Contact() {
               )}
             </button>
           </Magnetic>
-          {status === "sent" && (
-            <p className="text-[#49D9E8] text-xs text-center">
-              Thanks — we'll get back to you shortly.
-            </p>
-          )}
           {status === "error" && (
             <p className="text-[#D06AE8] text-xs text-center">{errorMsg}</p>
           )}

@@ -22,6 +22,7 @@ const AboutDetailed = lazy(() => import("./components/AboutDetailed"))
 const Products = lazy(() => import("./components/Products"))
 const Services = lazy(() => import("./components/Services"))
 const Contact = lazy(() => import("./components/Contact"))
+const ContactDetails = lazy(() => import("./components/ContactDetails"))
 const PrivacyPolicy = lazy(() => import("./components/PrivacyPolicy"))
 const TermsOfService = lazy(() => import("./components/TermsOfService"))
 const NotFound = lazy(() => import("./components/NotFound"))
@@ -95,6 +96,7 @@ export default function App() {
             <Route path="/products" element={<PageTransition><Products /></PageTransition>} />
             <Route path="/services" element={<PageTransition><Services /></PageTransition>} />
             <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
+            <Route path="/contact/next-steps" element={<PageTransition><ContactDetails /></PageTransition>} />
             <Route path="/privacy-policy" element={<PageTransition><PrivacyPolicy /></PageTransition>} />
             <Route path="/terms-of-service" element={<PageTransition><TermsOfService /></PageTransition>} />
             <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
