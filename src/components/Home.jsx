@@ -48,9 +48,9 @@ export default function Home({ introReady = true }) {
         className="w-full sm:w-[85%] md:w-[65%] mx-auto z-10"
       >
         <p className="text-gray-400 text-sm sm:text-base text-center leading-relaxed">
-          We research and engineer next-generation software for robotics,
-          space connectivity &amp; navigation, AI tools and products,
-          semiconductors, and sensors.
+          As a dedicated Research and Development group, we engineer
+          next-generation software for robotics, space connectivity &amp;
+          navigation, AI tools and products, semiconductors, and sensors.
         </p>
       </Reveal>
 
