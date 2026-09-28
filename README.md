@@ -22,6 +22,9 @@ Live at: https://micro-plex2.vercel.app
   `Contact`, `PrivacyPolicy`, `TermsOfService`, `NotFound`)
 - `api/contact.js` — serverless function that sends contact-form
   submissions by email (Vercel + Nodemailer)
+- `api/contact-details.js` — second step of the contact flow: business
+  name, product image (as an email attachment), and idea, sent after the
+  main contact form succeeds
 - `middleware.js` — Vercel Edge Middleware that injects real per-route
   title/description/OG tags into the raw HTML, so link previews on
   WhatsApp/Facebook/Twitter show the correct page, not just the homepage
