@@ -33,7 +33,7 @@ export default function Home({ introReady = true }) {
         title="Home"
         description={SEO_DESCRIPTION}
       />
-      <h1 className="w-full sm:w-[85%] md:w-[70%] mx-auto text-[26px] sm:text-[32px] md:text-[40px] text-gray-200 text-center font-[inter] leading-tight bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent">
+      <h1 className="w-full sm:w-[85%] md:w-[70%] mx-auto text-[26px] sm:text-[32px] md:text-[40px] text-gray-200 text-center font-display leading-tight bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent">
         <SplitText
           text={HEADLINE}
           controlled
@@ -58,7 +58,7 @@ export default function Home({ introReady = true }) {
         active={introReady}
         delay={0.45}
         className="w-full sm:w-auto z-10">
-        <article className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-[30px] orbitron w-full sm:w-auto">
+        <article className="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-12 md:gap-16 orbitron w-full sm:w-auto">
           <Magnetic className="w-full sm:w-auto sm:inline-block">
             <Link
               to="/about"
@@ -84,7 +84,7 @@ export default function Home({ introReady = true }) {
         delay={0.6}
         className="z-10 mt-4 w-full"
       >
-        <article className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 lg:gap-[100px] orbitron">
+        <article className="flex flex-wrap justify-center items-center gap-5 sm:gap-8 lg:gap-[100px] orbitron">
           {features.map(({ icon: Icon, color, label }) => (
             <div
               key={label}

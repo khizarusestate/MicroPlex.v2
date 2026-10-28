@@ -36,7 +36,7 @@ export default function AboutDetailed() {
           </Link>
         </Reveal>
 
-        <h1 className="relative z-10 w-[92%] md:w-[70%] mx-auto text-[28px] sm:text-[36px] md:text-[52px] font-[inter] font-bold leading-tight bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent">
+        <h1 className="relative z-10 w-[92%] md:w-[70%] mx-auto text-[28px] sm:text-[36px] md:text-[52px] font-display font-bold leading-tight bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent">
           <SplitText text={HEADLINE} delay={0.1} />
         </h1>
 
@@ -122,7 +122,7 @@ export default function AboutDetailed() {
           <p className="text-gray-400 text-sm md:text-lg leading-relaxed max-w-2xl">
             {CLOSING_LINE}
           </p>
-          <h2 className="w-[90%] mx-auto text-[26px] md:text-[44px] font-[inter] font-bold leading-tight bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent">
+          <h2 className="w-[90%] mx-auto text-[26px] md:text-[44px] font-display font-bold leading-tight bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent">
             Welcome to the Lab.
           </h2>
 
@@ -146,7 +146,7 @@ export default function AboutDetailed() {
             </span>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-6 orbitron mt-2">
+          <div className="flex flex-wrap justify-center gap-6 sm:gap-12 orbitron mt-2">
             <Magnetic>
               <Link
                 to="/contact"

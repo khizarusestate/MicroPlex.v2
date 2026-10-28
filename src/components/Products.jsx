@@ -71,7 +71,7 @@ export default function Products() {
             Our Products
           </span>
         </Reveal>
-        <h1 className="w-[92%] md:w-[65%] mx-auto text-[26px] md:text-[48px] font-[inter] font-bold leading-tight bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent">
+        <h1 className="w-[92%] md:w-[65%] mx-auto text-[26px] md:text-[48px] font-display font-bold leading-tight bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent">
           <SplitText text="Things We've Built and Actually Use Ourselves." delay={0.15} />
         </h1>
         <Reveal delay={0.2}>
@@ -209,10 +209,10 @@ export default function Products() {
       {/* ---------- CTA ---------- */}
       <section className="relative z-10 flex flex-col items-center gap-6 px-6 py-24 text-center">
         <Reveal className="flex flex-col items-center gap-6">
-          <h2 className="w-[90%] md:w-[55%] mx-auto text-[22px] md:text-[34px] font-[inter] font-bold leading-tight bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent">
+          <h2 className="w-[90%] md:w-[55%] mx-auto text-[22px] md:text-[34px] font-display font-bold leading-tight bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent">
             Got a Product Idea of Your Own?
           </h2>
-          <div className="flex flex-wrap justify-center gap-6 orbitron">
+          <div className="flex flex-wrap justify-center gap-6 sm:gap-12 orbitron">
             <Magnetic>
               <Link
                 to="/contact"

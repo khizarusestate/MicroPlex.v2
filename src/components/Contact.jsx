@@ -80,7 +80,7 @@ export default function Contact() {
             Get In Touch
           </span>
         </Reveal>
-        <h1 className="w-[90%] md:w-[60%] mx-auto text-[26px] md:text-[48px] font-[inter] font-bold leading-tight bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent">
+        <h1 className="w-[90%] md:w-[60%] mx-auto text-[26px] md:text-[48px] font-display font-bold leading-tight bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent">
           <SplitText text="Let's Build Something Worth Shipping." delay={0.1} />
         </h1>
         <Reveal delay={0.2}>
