@@ -1,101 +1,97 @@
-import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Rocket, BrainCircuit, Zap } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import Particles from "./Particles";
 import Reveal from "./Reveal";
 import Orb from "./Orb";
-import Seo from "./Seo";
 import Magnetic from "./Magnetic";
-import SplitText from "./SplitText";
+import {
+  ABOUT_INTRO,
+  ABOUT_STORY,
+  CLOSING_LINE,
+  VERTICALS,
+} from "./labContent";
 
-const features = [
-  { icon: Rocket, color: "#49D9E8", label: "SPACE SYSTEMS" },
-  { icon: BrainCircuit, color: "#5A8EF6", label: "AI LAB" },
-  { icon: Zap, color: "#D06AE8", label: "ENERGY R&D" },
-];
-
-export default function Home({ introReady = true }) {
+// Homepage "About" section — sits under the hero on "/". The full page lives
+// in AboutDetailed (/about); both read their copy from labContent.js.
+export default function About() {
   return (
-    <motion.main
-      id="home"
-      className="min-h-screen w-full flex flex-col justify-center items-center gap-10 md:gap-[40px] bg-black relative overflow-hidden pt-32 pb-16 px-4"
-      initial={{ opacity: 0, scale: 1.03 }}
-      animate={introReady ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 1.03 }}
-      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-    >
-      <Seo
-        title="Home"
-        description="Microplex AI is a private Research & Development Lab focused on space systems, AI, robotics, semiconductors, and energy innovation."
-      />
-      <h1 className="w-full sm:w-[85%] md:w-[70%] mx-auto text-[26px] sm:text-[32px] md:text-[40px] text-gray-200 text-center font-[inter] leading-tight bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent">
-        <SplitText
-          text="WE DON'T FOLLOW THE FUTURE. WE BUILD IT."
-          controlled
-          active={introReady}
-          delay={0.15}
-        />
-      </h1>
+    <section id="about" className="w-full bg-black relative overflow-hidden">
+      <Orb side="right" top="8%" offset={210} />
+      <Particles />
 
-      <Reveal
-        controlled
-        active={introReady}
-        delay={0.3}
-        className="w-full sm:w-[85%] md:w-[65%] mx-auto z-10"
-      >
-        <p className="text-gray-400 text-sm sm:text-base text-center leading-relaxed">
-          Microplex AI is a private Research & Development Lab dedicated to solving humanity's most complex
-          challenges at the intersection of Space, Intelligence, and Energy.
-        </p>
-      </Reveal>
-
-      <Reveal
-        controlled
-        active={introReady}
-        delay={0.45}
-        className="w-full sm:w-auto z-10"
-      >
-        <article className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-[30px] orbitron w-full sm:w-auto">
-          <Magnetic className="w-full sm:w-auto sm:inline-block">
+      <div className="relative z-10 max-w-6xl mx-auto px-6 pt-24 pb-10 grid md:grid-cols-2 gap-14 items-center">
+        <Reveal className="flex flex-col gap-5">
+          <span className="orbitron text-[11px] md:text-xs tracking-[0.35em] uppercase text-[#5A8EF6]">
+            About Us
+          </span>
+          <h2 className="orbitron text-xl md:text-3xl font-bold text-gray-100 leading-snug">
+            A private{" "}
+            <span className="bg-gradient-to-r gradient-animate from-[#49D9E8] to-[#5A8EF6] bg-clip-text text-transparent">
+              Research &amp; Development Lab.
+            </span>
+          </h2>
+          <p className="text-gray-400 text-sm md:text-base leading-relaxed">
+            {ABOUT_INTRO}
+          </p>
+          <p className="text-gray-400 text-sm md:text-base leading-relaxed">
+            {ABOUT_STORY}
+          </p>
+          <Magnetic>
             <Link
               to="/about"
-              className="w-full sm:w-auto text-center px-8 py-3 rounded-full font-bold text-gray-900 bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#5A8EF6] shadow-[0_0_35px_rgba(90,142,246,0.5)] hover:scale-[1.02] transition-all duration-300"
+              className="w-fit orbitron mt-2 flex items-center gap-2 px-6 py-3 rounded-full font-bold text-sm text-gray-900 bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#5A8EF6] shadow-[0_0_35px_rgba(90,142,246,0.5)] hover:shadow-[0_0_60px_rgba(90,142,246,0.8)] hover:scale-105 transition-all duration-300 border border-white/20"
             >
-              EXPLORE OUR LAB
+              READ OUR STORY <ArrowUpRight className="h-4 w-4" />
             </Link>
           </Magnetic>
-          <Magnetic className="w-full sm:w-auto sm:inline-block">
-            <Link
-              to="/products"
-              className="w-full sm:w-auto text-center px-8 py-3 rounded-full font-bold text-white bg-white/5 backdrop-blur-xl border border-[#D06AE8]/50 shadow-[0_0_30px_rgba(208,106,232,0.4)] hover:bg-[#D06AE8]/20 transition-all duration-300"
-            >
-              SEE OUR PROJECTS
-            </Link>
-          </Magnetic>
-        </article>
-      </Reveal>
+        </Reveal>
 
-      <Reveal
-        controlled
-        active={introReady}
-        delay={0.6}
-        className="z-10 mt-4 w-full"
-      >
-        <article className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 lg:gap-[100px] orbitron">
-          {features.map(({ icon: Icon, color, label }) => (
-            <div
-              key={label}
-              className="flex justify-center items-center text-white gap-[10px] sm:gap-[12px] px-[16px] sm:px-[20px] py-[10px] sm:py-[12px] rounded-full bg-white/5 backdrop-blur-xl border border-white/10 shadow-[0_0_20px_rgba(90,142,246,0.16)]"
-            >
-              <Icon className="h-6 w-6 sm:h-7 sm:w-7" style={{ color }} />
-              <p className="font-semibold text-sm sm:text-base whitespace-nowrap">{label}</p>
-            </div>
-          ))}
-        </article>
-      </Reveal>
+        <Reveal delay={0.15} className="flex flex-col">
+          <p className="orbitron text-[11px] tracking-[0.3em] uppercase text-gray-500 mb-4">
+            Our Research Verticals
+          </p>
+          <div className="border-y border-white/10 divide-y divide-white/10">
+            {VERTICALS.map((v, i) => {
+              const Icon = v.icon;
+              return (
+                <div key={v.title} className="flex gap-4 py-4 items-start">
+                  <div
+                    className="mt-1 h-10 w-10 shrink-0 rounded-full flex items-center justify-center border bg-white/5"
+                    style={{ borderColor: `${v.color}66`, boxShadow: `0 0 18px ${v.color}22` }}
+                  >
+                    <Icon className="h-4 w-4" style={{ color: v.color }} />
+                  </div>
+                  <div>
+                    <p className="orbitron text-xs md:text-sm text-gray-100 mb-1 flex flex-wrap items-center gap-x-2 gap-y-1">
+                      <span className="text-gray-500">0{i + 1}</span>
+                      {v.title}
+                      {v.badge && (
+                        <span className="text-[9px] tracking-widest px-2 py-0.5 rounded-full border border-[#D06AE8]/60 text-[#D06AE8] bg-[#D06AE8]/10">
+                          {v.badge}
+                        </span>
+                      )}
+                    </p>
+                    <p className="text-gray-400 text-xs md:text-sm leading-relaxed">
+                      {v.desc}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </Reveal>
+      </div>
 
-      <Orb side="left" top="20%" offset={210} />
-      <Orb side="right" top="40%" offset={210} delay={4} />
-      <Particles />
-    </motion.main>
+      <div className="relative z-10 flex flex-col items-center gap-3 px-6 pt-10 pb-24 text-center">
+        <Reveal className="flex flex-col items-center gap-3">
+          <p className="text-gray-400 text-sm md:text-base leading-relaxed max-w-xl">
+            {CLOSING_LINE}
+          </p>
+          <p className="orbitron text-lg md:text-2xl font-bold bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent">
+            Welcome to the Lab.
+          </p>
+        </Reveal>
+      </div>
+    </section>
   );
 }

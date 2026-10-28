@@ -1,17 +1,18 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Clock, Headphones, Code2 } from "lucide-react";
+import { Rocket, BrainCircuit, Zap } from "lucide-react";
 import Particles from "./Particles";
 import Reveal from "./Reveal";
 import Orb from "./Orb";
 import Seo from "./Seo";
 import Magnetic from "./Magnetic";
 import SplitText from "./SplitText";
+import { HEADLINE, ABOUT_INTRO, SEO_DESCRIPTION } from "./labContent";
 
 const features = [
-  { icon: Clock, color: "#49D9E8", label: "24 / 7 Availability" },
-  { icon: Headphones, color: "#5A8EF6", label: "Dedicated Support" },
-  { icon: Code2, color: "#D06AE8", label: "Custom IT Solutions" },
+  { icon: Rocket, color: "#49D9E8", label: "SPACE SYSTEMS" },
+  { icon: BrainCircuit, color: "#5A8EF6", label: "AI LAB" },
+  { icon: Zap, color: "#D06AE8", label: "ENERGY R&D" },
 ];
 
 // Home sits directly behind the intro splash, so its entrance is
@@ -30,11 +31,11 @@ export default function Home({ introReady = true }) {
     >
       <Seo
         title="Home"
-        description="MicroPlex builds web, mobile, and custom software for businesses in Pakistan and beyond — plus our own products, like FixItNow."
+        description={SEO_DESCRIPTION}
       />
       <h1 className="w-full sm:w-[85%] md:w-[70%] mx-auto text-[26px] sm:text-[32px] md:text-[40px] text-gray-200 text-center font-[inter] leading-tight bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent">
         <SplitText
-          text="Driving Research, Development & AI Innovation for a Smarter Tomorrow."
+          text={HEADLINE}
           controlled
           active={introReady}
           delay={0.15}
@@ -48,9 +49,7 @@ export default function Home({ introReady = true }) {
         className="w-full sm:w-[85%] md:w-[65%] mx-auto z-10"
       >
         <p className="text-gray-400 text-sm sm:text-base text-center leading-relaxed">
-          As a dedicated Research and Development group, we engineer
-          next-generation software for robotics, space connectivity &amp;
-          navigation, AI tools and products, semiconductors, and sensors.
+          {ABOUT_INTRO}
         </p>
       </Reveal>
 
@@ -62,10 +61,10 @@ export default function Home({ introReady = true }) {
         <article className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-[30px] orbitron w-full sm:w-auto">
           <Magnetic className="w-full sm:w-auto sm:inline-block">
             <Link
-              to="/services"
+              to="/about"
               className="w-full sm:w-auto text-center px-8 py-3 rounded-full font-bold text-gray-900 bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#5A8EF6] shadow-[0_0_35px_rgba(90,142,246,0.5)] hover:scale-[1.02] transition-all duration-300"
             >
-              EXPLORE OUR SERVICES
+              EXPLORE OUR LAB
             </Link>
           </Magnetic>
           <Magnetic className="w-full sm:w-auto sm:inline-block">
@@ -73,7 +72,7 @@ export default function Home({ introReady = true }) {
               to="/products"
               className="w-full sm:w-auto text-center px-8 py-3 rounded-full font-bold text-white bg-white/5 backdrop-blur-xl border border-[#D06AE8]/50 shadow-[0_0_30px_rgba(208,106,232,0.4)] hover:bg-[#D06AE8]/20 transition-all duration-300"
             >
-              SEE OUR PRODUCTS
+              SEE OUR PROJECTS
             </Link>
           </Magnetic>
         </article>

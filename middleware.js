@@ -33,12 +33,12 @@ const ROUTES = {
   "/": {
     title: "MicroPlex — Building Innovative Digital Solutions",
     description:
-      "MicroPlex builds web, mobile, and custom software for businesses in Pakistan and beyond — plus our own products, like FixItNow.",
+      "Microplex AI is a private Research & Development Lab working at the intersection of Space, Intelligence, and Energy — space systems, robotics, AI, semiconductors, and magnetic electricity.",
   },
   "/about": {
     title: "About Us | MicroPlex",
     description:
-      "The people, principles, and path behind MicroPlex — our mission, journey, values, and leadership.",
+      "Microplex AI is a private Research & Development Lab working at the intersection of Space, Intelligence, and Energy — space systems, robotics, AI, semiconductors, and magnetic electricity.",
   },
   "/services": {
     title: "Services | MicroPlex",
