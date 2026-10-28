@@ -58,19 +58,19 @@ export default function Home({ introReady = true }) {
         active={introReady}
         delay={0.45}
         className="w-full sm:w-auto z-10">
-        <article className="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-12 md:gap-16 orbitron w-full sm:w-auto">
-          <Magnetic className="w-full sm:w-auto sm:inline-block">
+        <article className="flex flex-col sm:flex-row justify-center items-center gap-5 sm:gap-14 md:gap-20 orbitron w-full sm:w-auto">
+          <Magnetic className="w-full max-w-xs sm:max-w-none sm:w-auto sm:inline-block">
             <Link
               to="/about"
-              className="w-full sm:w-auto text-center px-8 py-3 rounded-full font-bold text-gray-900 bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#5A8EF6] shadow-[0_0_35px_rgba(90,142,246,0.5)] hover:scale-[1.02] transition-all duration-300"
+              className="block w-full sm:w-auto text-center px-8 py-3 rounded-full font-bold text-gray-900 bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#5A8EF6] shadow-[0_0_35px_rgba(90,142,246,0.5)] hover:scale-[1.02] transition-all duration-300"
             >
               EXPLORE OUR LAB
             </Link>
           </Magnetic>
-          <Magnetic className="w-full sm:w-auto sm:inline-block">
+          <Magnetic className="w-full max-w-xs sm:max-w-none sm:w-auto sm:inline-block">
             <Link
               to="/products"
-              className="w-full sm:w-auto text-center px-8 py-3 rounded-full font-bold text-white bg-white/5 backdrop-blur-xl border border-[#D06AE8]/50 shadow-[0_0_30px_rgba(208,106,232,0.4)] hover:bg-[#D06AE8]/20 transition-all duration-300"
+              className="block w-full sm:w-auto text-center px-8 py-3 rounded-full font-bold text-white bg-white/5 backdrop-blur-xl border border-[#D06AE8]/50 shadow-[0_0_30px_rgba(208,106,232,0.4)] hover:bg-[#D06AE8]/20 transition-all duration-300"
             >
               SEE OUR PROJECTS
             </Link>
