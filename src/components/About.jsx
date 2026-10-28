@@ -1,254 +1,101 @@
-import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import {
-  Rocket,
-  ShieldCheck,
-  Users,
-  Target,
-  Compass,
-  Hammer,
-  Rows3,
-  LifeBuoy,
-  ArrowUpRight,
-} from "lucide-react";
+import { Rocket, BrainCircuit, Zap } from "lucide-react";
 import Particles from "./Particles";
 import Reveal from "./Reveal";
 import Orb from "./Orb";
+import Seo from "./Seo";
 import Magnetic from "./Magnetic";
+import SplitText from "./SplitText";
 
-/* Animated count-up for the stats row — triggers once the section enters view */
-function Counter({ to, suffix = "", duration = 1400 }) {
-  const [value, setValue] = useState(0);
-  const ref = useRef(null);
-  const started = useRef(false);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !started.current) {
-          started.current = true;
-          const start = performance.now();
-          const tick = (now) => {
-            const progress = Math.min((now - start) / duration, 1);
-            const eased = 1 - Math.pow(1 - progress, 3);
-            setValue(Math.floor(eased * to));
-            if (progress < 1) requestAnimationFrame(tick);
-            else setValue(to);
-          };
-          requestAnimationFrame(tick);
-        }
-      },
-      { threshold: 0.4 }
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, [to, duration]);
-
-  return (
-    <span ref={ref}>
-      {value}
-      {suffix}
-    </span>
-  );
-}
-
-const values = [
-  {
-    icon: ShieldCheck,
-    color: "#49D9E8",
-    title: "Reliability First",
-    desc: "Every system we ship is built to stay up, stay fast, and stay out of your way — monitored around the clock, not just at launch.",
-  },
-  {
-    icon: Target,
-    color: "#5A8EF6",
-    title: "Built Around Outcomes",
-    desc: "We measure our work by what it changes for you — fewer support tickets, faster checkouts, happier users — not by lines of code shipped.",
-  },
-  {
-    icon: Users,
-    color: "#D06AE8",
-    title: "A Team, Not a Vendor",
-    desc: "You get direct access to the people building your product. No account managers relaying messages, no black box in between.",
-  },
+const features = [
+  { icon: Rocket, color: "#49D9E8", label: "SPACE SYSTEMS" },
+  { icon: BrainCircuit, color: "#5A8EF6", label: "AI LAB" },
+  { icon: Zap, color: "#D06AE8", label: "ENERGY R&D" },
 ];
 
-const process = [
-  { icon: Compass, label: "Discover", desc: "We map your goals, constraints, and users before a single line of code is written." },
-  { icon: Rows3, label: "Design", desc: "Architecture and interface decisions get made together, so nothing painted-in-a-corner later." },
-  { icon: Hammer, label: "Build", desc: "Iterative development with working demos, not silent progress reports." },
-  { icon: Rocket, label: "Launch", desc: "Deployed, monitored, and handed off with documentation that actually helps." },
-  { icon: LifeBuoy, label: "Support", desc: "24/7 availability after launch — we stay reachable, not just billable." },
-];
-
-export default function About() {
+export default function Home({ introReady = true }) {
   return (
-    <main id="about" className="w-full bg-black relative overflow-hidden">
-      <Orb side="right" top="8%" offset={210} />
-      <Particles />
+    <motion.main
+      id="home"
+      className="min-h-screen w-full flex flex-col justify-center items-center gap-10 md:gap-[40px] bg-black relative overflow-hidden pt-32 pb-16 px-4"
+      initial={{ opacity: 0, scale: 1.03 }}
+      animate={introReady ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 1.03 }}
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+    >
+      <Seo
+        title="Home"
+        description="Microplex AI is a private Research & Development Lab focused on space systems, AI, robotics, semiconductors, and energy innovation."
+      />
+      <h1 className="w-full sm:w-[85%] md:w-[70%] mx-auto text-[26px] sm:text-[32px] md:text-[40px] text-gray-200 text-center font-[inter] leading-tight bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent">
+        <SplitText
+          text="WE DON'T FOLLOW THE FUTURE. WE BUILD IT."
+          controlled
+          active={introReady}
+          delay={0.15}
+        />
+      </h1>
 
-      {/* ---------- HERO ---------- */}
-      <section className="relative z-10 min-h-[70vh] flex flex-col justify-center items-center gap-6 px-6 text-center pt-28 pb-16">
-        <Reveal>
-          <span className="orbitron text-[11px] md:text-xs tracking-[0.35em] uppercase text-[#5A8EF6]">
-            About Us
-          </span>
-        </Reveal>
-        <Reveal delay={0.1}>
-          <h1 className="w-[90%] md:w-[65%] mx-auto text-[26px] md:text-[48px] font-[inter] font-bold leading-tight bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent">
-            We Build the Systems Behind Tomorrow's Businesses.
-          </h1>
-        </Reveal>
-        <Reveal delay={0.2}>
-          <p className="w-[90%] md:w-[50%] mx-auto text-gray-400 text-sm md:text-base leading-relaxed">
-            A small, deliberately-sized team of engineers who'd rather ship one
-            thing well than five things half-finished.
-          </p>
-        </Reveal>
-      </section>
+      <Reveal
+        controlled
+        active={introReady}
+        delay={0.3}
+        className="w-full sm:w-[85%] md:w-[65%] mx-auto z-10"
+      >
+        <p className="text-gray-400 text-sm sm:text-base text-center leading-relaxed">
+          Microplex AI is a private Research & Development Lab dedicated to solving humanity's most complex
+          challenges at the intersection of Space, Intelligence, and Energy.
+        </p>
+      </Reveal>
 
-      {/* ---------- STORY ---------- */}
-      <section className="relative z-10 max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-14 items-center">
-        <Reveal className="flex flex-col gap-5">
-          <h2 className="orbitron text-xl md:text-3xl font-bold text-gray-100">
-            Started small.{" "}
-            <span className="bg-gradient-to-r gradient-animate from-[#49D9E8] to-[#5A8EF6] bg-clip-text text-transparent">
-              Stayed intentional.
-            </span>
-          </h2>
-          <p className="text-gray-400 text-sm md:text-base leading-relaxed">
-            We began as a two-person team frustrated with how disconnected
-            most software agencies were from the businesses they built for.
-            So we built the opposite kind of company — one where the person
-            writing your code is the same person who understands why it
-            matters.
-          </p>
-          <p className="text-gray-400 text-sm md:text-base leading-relaxed">
-            That principle hasn't changed as we've grown. We take on fewer
-            clients than we could, so every one of them gets our full
-            attention.
-          </p>
-          <Magnetic>
+      <Reveal
+        controlled
+        active={introReady}
+        delay={0.45}
+        className="w-full sm:w-auto z-10"
+      >
+        <article className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-[30px] orbitron w-full sm:w-auto">
+          <Magnetic className="w-full sm:w-auto sm:inline-block">
             <Link
-              to="/contact"
-              className="w-fit orbitron mt-2 flex items-center gap-2 px-6 py-3 rounded-full font-bold text-sm text-gray-900 bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#5A8EF6] shadow-[0_0_35px_rgba(90,142,246,0.5)] hover:shadow-[0_0_60px_rgba(90,142,246,0.8)] hover:scale-105 transition-all duration-300 border border-white/20"
+              to="/about"
+              className="w-full sm:w-auto text-center px-8 py-3 rounded-full font-bold text-gray-900 bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#5A8EF6] shadow-[0_0_35px_rgba(90,142,246,0.5)] hover:scale-[1.02] transition-all duration-300"
             >
-              Work With Us <ArrowUpRight className="h-4 w-4" />
+              EXPLORE OUR LAB
             </Link>
           </Magnetic>
-        </Reveal>
+          <Magnetic className="w-full sm:w-auto sm:inline-block">
+            <Link
+              to="/products"
+              className="w-full sm:w-auto text-center px-8 py-3 rounded-full font-bold text-white bg-white/5 backdrop-blur-xl border border-[#D06AE8]/50 shadow-[0_0_30px_rgba(208,106,232,0.4)] hover:bg-[#D06AE8]/20 transition-all duration-300"
+            >
+              SEE OUR PROJECTS
+            </Link>
+          </Magnetic>
+        </article>
+      </Reveal>
 
-        {/* right column — inline stats, no boxes, just rules */}
-        <Reveal delay={0.15} className="flex flex-col divide-y divide-white/10 border-y border-white/10">
-          {[
-            { n: 6, suffix: "+", label: "Years building production software" },
-            { n: 120, suffix: "+", label: "Projects shipped and still running" },
-            { n: 40, suffix: "+", label: "Clients across three continents" },
-            { n: 99, suffix: "%", label: "Uptime average across live systems" },
-          ].map((s) => (
-            <div key={s.label} className="flex items-center justify-between py-5">
-              <p className="text-gray-400 text-sm max-w-[60%]">{s.label}</p>
-              <p className="orbitron text-2xl md:text-3xl font-bold bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent">
-                <Counter to={s.n} suffix={s.suffix} />
-              </p>
+      <Reveal
+        controlled
+        active={introReady}
+        delay={0.6}
+        className="z-10 mt-4 w-full"
+      >
+        <article className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 lg:gap-[100px] orbitron">
+          {features.map(({ icon: Icon, color, label }) => (
+            <div
+              key={label}
+              className="flex justify-center items-center text-white gap-[10px] sm:gap-[12px] px-[16px] sm:px-[20px] py-[10px] sm:py-[12px] rounded-full bg-white/5 backdrop-blur-xl border border-white/10 shadow-[0_0_20px_rgba(90,142,246,0.16)]"
+            >
+              <Icon className="h-6 w-6 sm:h-7 sm:w-7" style={{ color }} />
+              <p className="font-semibold text-sm sm:text-base whitespace-nowrap">{label}</p>
             </div>
           ))}
-        </Reveal>
-      </section>
+        </article>
+      </Reveal>
 
-      {/* ---------- VALUES — alternating rows, not cards ---------- */}
-      <section className="relative z-10 max-w-5xl mx-auto px-6 py-20">
-        <h2 className="orbitron text-xl md:text-3xl font-bold text-gray-100 text-center mb-14">
-          What Guides the Work
-        </h2>
-        <div className="flex flex-col gap-12">
-          {values.map((v, i) => {
-            const Icon = v.icon;
-            const reversed = i % 2 === 1;
-            return (
-              <Reveal
-                key={v.title}
-                delay={i * 0.1}
-                className={`flex flex-col md:flex-row ${
-                  reversed ? "md:flex-row-reverse" : ""
-                } items-center gap-6 md:gap-10`}
-              >
-                <div
-                  className="shrink-0 h-16 w-16 rounded-full flex items-center justify-center border"
-                  style={{
-                    borderColor: `${v.color}55`,
-                    boxShadow: `0 0 30px ${v.color}33`,
-                  }}
-                >
-                  <Icon className="h-7 w-7" style={{ color: v.color }} />
-                </div>
-                <div className={`text-center md:text-left ${reversed ? "md:text-right" : ""}`}>
-                  <h3 className="orbitron text-gray-100 font-bold text-lg mb-2">
-                    {v.title}
-                  </h3>
-                  <p className="text-gray-400 text-sm md:text-base leading-relaxed max-w-xl">
-                    {v.desc}
-                  </p>
-                </div>
-              </Reveal>
-            );
-          })}
-        </div>
-      </section>
-
-      {/* ---------- PROCESS — connected timeline, numbered because order matters ---------- */}
-      <section className="relative z-10 max-w-6xl mx-auto px-6 py-20">
-        <h2 className="orbitron text-xl md:text-3xl font-bold text-gray-100 text-center mb-16">
-          How a Project Moves
-        </h2>
-        <div className="relative flex flex-col md:flex-row md:justify-between gap-10 md:gap-4">
-          <div className="hidden md:block absolute top-6 left-0 right-0 h-px bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] opacity-30" />
-          {process.map((p, i) => {
-            const Icon = p.icon;
-            return (
-              <Reveal
-                key={p.label}
-                delay={i * 0.1}
-                className="relative flex md:flex-col items-center gap-4 md:gap-3 md:text-center md:w-[18%]"
-              >
-                <div className="relative shrink-0 h-12 w-12 rounded-full flex items-center justify-center bg-black border border-white/15 z-10">
-                  <Icon className="h-5 w-5 text-[#5A8EF6]" />
-                </div>
-                <div>
-                  <p className="orbitron text-xs text-gray-500 mb-1">
-                    0{i + 1}
-                  </p>
-                  <p className="text-gray-100 font-semibold text-sm mb-1">
-                    {p.label}
-                  </p>
-                  <p className="text-gray-500 text-xs leading-relaxed md:max-w-[160px]">
-                    {p.desc}
-                  </p>
-                </div>
-              </Reveal>
-            );
-          })}
-        </div>
-      </section>
-
-      {/* ---------- CTA ---------- */}
-      <section className="relative z-10 flex flex-col items-center gap-6 px-6 py-24 text-center">
-        <Reveal className="flex flex-col items-center gap-6">
-          <h2 className="w-[90%] md:w-[55%] mx-auto text-[22px] md:text-[34px] font-[inter] font-bold leading-tight bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#D06AE8] bg-clip-text text-transparent">
-            Have Something Worth Building?
-          </h2>
-          <div className="flex flex-wrap justify-center gap-6 orbitron">
-            <button className="px-8 py-3 rounded-full font-bold text-gray-900 bg-gradient-to-r gradient-animate from-[#49D9E8] via-[#5A8EF6] to-[#5A8EF6] shadow-[0_0_35px_rgba(90,142,246,0.5)] hover:shadow-[0_0_60px_rgba(90,142,246,0.8)] hover:scale-105 transition-all duration-300 border border-white/20">
-              START A PROJECT
-            </button>
-            <button className="px-8 py-3 rounded-full font-bold text-white bg-white/5 backdrop-blur-xl border border-[#D06AE8]/50 shadow-[0_0_30px_rgba(208,106,232,0.4)] hover:bg-[#D06AE8]/20 hover:shadow-[0_0_60px_rgba(208,106,232,0.8)] hover:scale-105 transition-all duration-300">
-              MEET THE TEAM
-            </button>
-          </div>
-        </Reveal>
-      </section>
-    </main>
+      <Orb side="left" top="20%" offset={210} />
+      <Orb side="right" top="40%" offset={210} delay={4} />
+      <Particles />
+    </motion.main>
   );
 }
